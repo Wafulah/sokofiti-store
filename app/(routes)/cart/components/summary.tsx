@@ -67,7 +67,7 @@ const Summary = () => {
               <Button className="rounded-lg" onClick={onStripe}>
                 Credit Card
               </Button>
-              <Button className="bg-red-500 rounded-lg" onClick={onMpesa}>
+              <Button className="bg-yellow-500 rounded-lg" onClick={onMpesa}>
                 Mpesa
               </Button>
             </div>
