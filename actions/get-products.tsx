@@ -22,7 +22,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
   });
 
   const res = await fetch(url);
-  console.log(res);
+  
   console.log(res.json());
   return res.json();
 };
