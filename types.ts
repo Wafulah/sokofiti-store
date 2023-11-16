@@ -9,6 +9,13 @@ export interface Product {
   images: Image[]
 };
 
+export interface Store {
+  id: string;
+  name: string;
+  images: Image[];
+}
+
+
 export interface Image {
   id: string;
   url: string;
