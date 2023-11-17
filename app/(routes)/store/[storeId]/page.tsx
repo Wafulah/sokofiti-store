@@ -1,4 +1,4 @@
-import StoreList from "@/components/store-list";
+import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info-store";
 import getStore from "@/actions/get-store";
@@ -36,7 +36,7 @@ const StorePage: React.FC<StorePageProps> = async ({ params }) => {
             </div>
           </div>
           <hr className="my-10" />
-          <StoreList title="Related Items" items={suggestedStores} />
+          <ProductList title="Store Items" items={product.products} />
         </div>
       </Container>
     </div>
