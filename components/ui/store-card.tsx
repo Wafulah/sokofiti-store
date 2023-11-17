@@ -34,7 +34,6 @@ const StoreCard: React.FC<StoreCard> = ({ data }) => {
     previewModal.onOpen(data);
   };
 
-
   return (
     <div
       onClick={handleClick}
@@ -44,7 +43,7 @@ const StoreCard: React.FC<StoreCard> = ({ data }) => {
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           src={data.images?.[0]?.url}
-          alt=""
+          alt={data.name}
           fill
           className="aspect-square object-cover rounded-md"
         />
@@ -54,7 +53,6 @@ const StoreCard: React.FC<StoreCard> = ({ data }) => {
               onClick={onPreview}
               icon={<Expand size={20} className="text-gray-600" />}
             />
-           
           </div>
         </div>
       </div>
