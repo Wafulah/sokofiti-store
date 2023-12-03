@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
   const previewModal = usePreviewModal();
   const cart = useCart();
   const router = useRouter();
-
+  
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
   };
