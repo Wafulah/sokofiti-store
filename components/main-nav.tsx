@@ -51,16 +51,18 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
       </SelectTrigger>
       <SelectContent>
         {routes.map((route) => (
-          <Link
-            key={route.href}
-            href={route.href}
-            className={cn(
-              "text-sm font-medium transition-colors hover:text-black",
-              route.active ? "text-black" : "text-neutral-500"
-            )}
-          >
-            {route.label}
-          </Link>
+          <SelectItem key={route.href} value="light">
+            <Link
+              key={route.href}
+              href={route.href}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-black",
+                route.active ? "text-black" : "text-neutral-500"
+              )}
+            >
+              {route.label}
+            </Link>
+          </SelectItem>
         ))}
       </SelectContent>
     </Select>
