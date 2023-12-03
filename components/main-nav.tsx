@@ -59,7 +59,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
               route.active ? "text-black" : "text-neutral-500"
             )}
           >
-            <SelectItem value="light">{route.label}</SelectItem>
+            {route.label}
           </Link>
         ))}
       </SelectContent>
