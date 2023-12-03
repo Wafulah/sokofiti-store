@@ -34,7 +34,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
       </SelectTrigger>
       <SelectContent>
         {routes.map((route) => (
-          <SelectItem key={route.href} value="light">
+          <SelectItem key={route.href} value= {route.label}>
             <Link
               key={route.href}
               href={route.href}
