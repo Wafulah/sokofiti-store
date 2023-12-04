@@ -47,7 +47,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       <hr className="my-4" />
       <h1 className="font-semibold text-black">Description</h1>
       <div className="mt-3 flex items-end justify-between">
-        <p className="text-2xl text-gray-900">
+        <p className="text-lg text-gray-900">
           <div>{data?.description}</div>
         </p>
       </div>
