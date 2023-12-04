@@ -15,8 +15,10 @@ export interface Store {
   id: string;
   name: string;
   description: string;
+  county: string;
   images: Image[];
   products: Product[];
+  categories: Category[];
 }
 
 export interface Image {
