@@ -14,6 +14,7 @@ export interface Product {
 export interface Store {
   id: string;
   name: string;
+  description: string;
   images: Image[];
   products: Product[];
 }
