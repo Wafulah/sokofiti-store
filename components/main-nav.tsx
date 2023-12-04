@@ -29,7 +29,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
 
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[90px] lg:w-[180px]">
         <SelectValue placeholder="Categories" />
       </SelectTrigger>
       <SelectContent>
