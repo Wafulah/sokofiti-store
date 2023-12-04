@@ -19,6 +19,7 @@ export interface Store {
   images: Image[];
   products: Product[];
   categories: Category[];
+  county: County;
 }
 
 export interface Image {
@@ -36,6 +37,11 @@ export interface Category {
   id: string;
   name: string;
   billboard: Billboard;
+}
+
+export interface County {
+  id: string;
+  name: string;
 }
 
 export interface Size {
