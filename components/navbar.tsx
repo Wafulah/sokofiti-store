@@ -15,7 +15,7 @@ const Navbar = async () => {
           <Link href="/" className="ml-1 flex lg:ml-0 gap-x-2">
             <p className="font-bold text-base lg:text-xl">Home</p>
           </Link>
-          <Link href="/store" className="flex lg:ml-2 lg:mr-2 gap-x-2">
+          <Link href="/store" className="flex ml-2 mr-2 gap-x-2">
             <p className=" font-bold text-base lg:text-xl">Stores</p>
           </Link>
           <MainNav data={categories} />
