@@ -31,9 +31,13 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       </div>
       <hr className="my-4" />
       <div className="flex flex-col gap-y-6">
-      <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Location</h3>
-          <div>{data?.county?.name}</div>
+          <div className="flex items-center gap-x-4">
+            {data?.counties.map((item) => (
+              <div key={item.id}>{item.name}</div>
+            ))}
+          </div>
         </div>
         <h3 className="font-semibold text-black">Categories:</h3>
         <div className="flex items-center gap-x-4">

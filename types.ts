@@ -18,7 +18,7 @@ export interface Store {
   images: Image[];
   products: Product[];
   categories: Category[];
-  county: County;
+  counties: County[];
 }
 
 export interface Image {
