@@ -10,16 +10,6 @@ interface Query {
 
 const getStores = async (): Promise<Store[]> => {
   try {
-    // const url = qs.stringifyUrl({
-    //   url: URL,
-    //   query: {
-    //     colorId: query.colorId,
-    //     sizeId: query.sizeId,
-    //     categoryId: query.categoryId,
-    //     isFeatured: query.isFeatured,
-    //   },
-    // });
-
     const res = await fetch(URL);
 
     if (!res.ok) {
@@ -27,10 +17,9 @@ const getStores = async (): Promise<Store[]> => {
     }
 
     const data: Store[] = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
-    console.error("[GET_StoreS]", error);
+    console.error("[GET_StORES]", error);
     throw error; // Rethrow the error if needed
   }
 };

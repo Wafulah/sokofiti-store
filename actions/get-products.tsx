@@ -29,7 +29,6 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     }
 
     const data: Product[] = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error("[GET_PRODUCTS]", error);

@@ -6,7 +6,7 @@ import Container from "@/components/ui/container";
 
 export const revalidate = 0;
 
-const HomePage = async () => {
+const StorePage = async () => {
   const products = await getStores();
   const billboard = await getBillboard("fcd238a6-478c-4d63-8377-58eaf8978e14");
 
@@ -21,4 +21,4 @@ const HomePage = async () => {
   );
 };
 
-export default HomePage;
+export default StorePage;

@@ -32,10 +32,36 @@ export interface Billboard {
   imageUrl: string;
 }
 
+export interface Order {
+  id: string;
+  store: Store[];
+  isPaid: boolean;
+  phone: string;
+  county: County[];
+  createdAt: string; 
+  orderItems:Product[];
+}
+
+export interface User {
+  id?: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  password?: string;
+}
+
 export interface Category {
   id: string;
   name: string;
+  imageUrl: string;
   billboard: Billboard;
+}
+export interface Offer {
+  id: string;
+  name: string;
+  imageUrl: string;
+  href: string;
 }
 
 export interface County {

@@ -74,3 +74,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.red-pink-gradient {
+  background: "rgb(255, 0, 0)";
+  background: linear-gradient(90.13deg, rgb(33, 0, 0) 1.9%, rgb(13, 0, 9) 97.5%);
+  background: -webkit-linear-gradient(
+    -90.13deg,
+    rgb(43, 1, 1)1.9%,
+    rgb(13, 0, 9) 97.5%
+  );
+}
