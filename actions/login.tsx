@@ -3,22 +3,26 @@ import { User } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/buyer`;
 
+interface Response {
+  id?: string;
+  email?: string;
+  phoneNumber?: string;
+  firstName?: string;
+  lastName?: string;
+}
+
 interface Query {
   email: string;
   password: string;
-  
 }
 
-const Login = async (query: Query): Promise<User[]> => {
- 
-
+const Login = async (query: Query): Promise<Response> => {
   try {
     const url = qs.stringifyUrl({
       url: URL,
       query: {
         email: query.email,
         password: query.password,
-        
       },
     });
 
@@ -26,7 +30,7 @@ const Login = async (query: Query): Promise<User[]> => {
     if (!res.ok) {
       throw new Error("Failed to Login User ");
     }
-    const userData: User[] = await res.json();
+    const userData: Response = await res.json();
     return userData;
   } catch (error) {
     console.error("Error Login user", error);

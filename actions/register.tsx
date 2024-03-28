@@ -2,13 +2,21 @@ import { User } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/register-buyer`;
 
+interface Response {
+  id?: string;
+  email?: string;
+  phoneNumber?: string;
+  firstName?: string;
+  lastName?: string;
+}
+
 const Register = async (
   firstName: string,
   lastName: string,
   phoneNumber: string,
   email: string,
   password: string
-): Promise<User[]> => {
+): Promise<Response> => {
   const requestBody = {
     firstName: firstName,
     lastName: lastName,
@@ -28,7 +36,7 @@ const Register = async (
     if (!res.ok) {
       throw new Error("Failed to register user");
     }
-    const userData: User[] = await res.json();
+    const userData: Response = await res.json();
     return userData;
   } catch (error) {
     console.error("Error registering user", error);

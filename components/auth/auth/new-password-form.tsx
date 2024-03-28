@@ -21,7 +21,7 @@ import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import newPassword from "@/actions/new-password";
 import { toast } from "react-hot-toast";
-import { useUserStore } from "@/lib/store";
+import useUserStore from "@/lib/store";
 
 const formSchema = z.object({
   password: z.string().min(1),
@@ -45,7 +45,7 @@ export const NewPasswordForm = () => {
 
   const userDetails = useUserStore((state) => state);
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
 
@@ -54,7 +54,7 @@ export const NewPasswordForm = () => {
       // Send the data to your API endpoint
 
       // // window.location.href = `/search/${name}`;
-      const changePassword = newPassword(password, userDetails.userId);
+      const changePassword = await newPassword(password, userDetails.id);
       useUserStore.getState().setUserData(changePassword);
 
       toast.success("Password changed Successfully");

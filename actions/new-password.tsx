@@ -2,10 +2,18 @@ import { User } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/new-password-buyer`;
 
+interface Response {
+  id?: string;
+  email?: string;
+  phoneNumber?: string;
+  firstName?: string;
+  lastName?: string;
+}
+
 const newPassword = async (
   password: string,
   userId?: string
-): Promise<User[]> => {
+): Promise<Response> => {
   const requestBody = {
     password: password,
     userId: userId,
@@ -22,7 +30,7 @@ const newPassword = async (
     if (!res.ok) {
       throw new Error("Failed to Change User Password");
     }
-    const userData: User[] = await res.json();
+    const userData: Response = await res.json();
     return userData;
   } catch (error) {
     console.error("Error changing user password", error);

@@ -6,7 +6,7 @@ import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useUserStore } from "@/lib/store";
+import useUserStore from "@/lib/store";
 
 import { toast } from "react-hot-toast";
 
@@ -53,7 +53,7 @@ export const LoginForm = () => {
     },
   });
   const userDetails = useUserStore((state) => state);
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
 
@@ -63,7 +63,7 @@ export const LoginForm = () => {
       //   // Send the data to your API endpoint
 
       // // window.location.href = `/search/${name}`;
-      const login = Login({email :email, password:password});
+      const login = await Login({email :email, password:password});
       useUserStore.getState().setUserData(login);
 
       toast.success("Login Successful");

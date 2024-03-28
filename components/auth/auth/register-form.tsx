@@ -20,7 +20,7 @@ import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import Register from "@/actions/register";
 import { toast } from "react-hot-toast";
-import { useUserStore } from "@/lib/store";
+import useUserStore from "@/lib/store";
 
 const formSchema = z.object({
   first_name: z.string().min(1),

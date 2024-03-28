@@ -2,13 +2,13 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 interface UserState {
-  userId?: string;
+  id?: string;
   email?: string;
   phoneNumber?: string;
   firstName?: string;
   lastName?: string;
   setUserData: (data: {
-    userId?: string;
+    id?: string;
     email?: string;
     phoneNumber?: string;
     firstName?: string;
@@ -20,7 +20,7 @@ interface UserState {
 const useUserStore = create(
   persist<UserState>(
     (set, get) => ({
-      userId: undefined,
+      id: undefined,
       email: undefined,
       phoneNumber: undefined,
       firstName: undefined,
@@ -28,7 +28,7 @@ const useUserStore = create(
       setUserData: (data) => set((state) => ({ ...state, ...data })),
       clearUserData: () =>
         set({
-          userId: undefined,
+          id: undefined,
           email: undefined,
           phoneNumber: undefined,
           firstName: undefined,
