@@ -44,7 +44,14 @@ export const Sidebar = () => {
 
   const userDetails = useUserStore((state) => state.items);
   const userData = useUserStore();
-  
+
+  const removeAll = useUserStore((state) => state.clearUserData); // Get the clearUserData function from the store
+
+  const handleLogout = () => {
+    // Call the removeAll function to clear user data
+    removeAll();
+    // Optionally, navigate to the logout page or perform any other logout-related actions
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -189,13 +196,19 @@ export const Sidebar = () => {
             </form>
           </Form>
         </div>
-        <div className="items-center mt-4 w-11/12 h-10 bg-zinc-400/10 rounded-lg flex justify-between">
-          <p className="pl-4 font-medium text-white text-base">View Orders</p>
-        </div>
-        <div className="items-center mt-2 w-11/12 h-10 bg-zinc-400/10 rounded-lg flex justify-between">
-          <p className="pl-4 font-medium text-red-500 text-base">
-            Delete Account
-          </p>
+        <Link href="/new-password">
+          <div className="items-center mt-4 w-11/12 h-10 bg-zinc-400/10 rounded-lg flex justify-between cursor-pointer">
+            <p className="pl-4 font-medium text-white text-base">
+              Change Password
+            </p>
+          </div>
+        </Link>
+
+        <div
+          className="items-center mt-2 w-11/12 h-10 bg-zinc-400/10 rounded-lg flex justify-between cursor-pointer"
+          onClick={handleLogout}
+        >
+          <p className="pl-4 font-medium text-red-500 text-base">Logout</p>
         </div>
       </div>
     </div>

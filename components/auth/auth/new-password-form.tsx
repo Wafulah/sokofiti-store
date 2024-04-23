@@ -24,6 +24,7 @@ import { toast } from "react-hot-toast";
 import useUserStore from "@/lib/store";
 
 const formSchema = z.object({
+  email: z.string().min(1),
   password: z.string().min(1),
 });
 
@@ -35,28 +36,28 @@ export const NewPasswordForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
-
+  const userDetails = useUserStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       password: "",
+      email: "",
     },
   });
-
-  const userDetails = useUserStore((state) => state.items);
-  const userData = useUserStore();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
 
-      const { password } = values;
+      const { password, email } = values;
 
       // Send the data to your API endpoint
 
-      // // window.location.href = `/search/${name}`;
-      const changePassword = await newPassword(password, userDetails[0].id);
-      userData.setUserData(changePassword);
+      const response = await newPassword({
+        email: email,
+        password: password,
+      });
+      userDetails.setUserData(response);
 
       toast.success("Password changed Successfully");
     } catch (error) {
@@ -76,6 +77,24 @@ export const NewPasswordForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="john.doe@example.com"
+                      type="email"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="password"
