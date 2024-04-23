@@ -2,6 +2,7 @@ import Container from "@/components/ui/container";
 import Billboard from "@/components/ui/billboard";
 import ProductCard from "@/components/ui/product-card";
 import NoResults from "@/components/ui/no-results";
+import LoadMore from "@/components/categoryMore";
 
 import getProducts from "@/actions/get-products";
 import getCategory from "@/actions/get-category";
@@ -50,6 +51,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                   <ProductCard key={item.id} data={item} index={index} />
                 ))}
               </div>
+              <LoadMore
+                categoryId={params.categoryId}
+                colorId={searchParams.colorId}
+                sizeId={searchParams.sizeId}
+              />
             </div>
           </div>
         </div>

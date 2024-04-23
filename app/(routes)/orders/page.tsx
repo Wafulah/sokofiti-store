@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { Order } from "@/types";
+import useUserStore from "@/lib/store";
 import getOrders from "@/actions/get-orders";
 import Container from "@/components/ui/container";
 import { FaStopwatch } from "react-icons/fa6";
@@ -13,16 +14,17 @@ import OrderBar from "@/components/orderbar";
 const OrderPage = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [orders, setOrders] = useState<Order[]>([]);
+  const userDetails = useUserStore((state) => state.items);
 
   useEffect(() => {
-    const userId = { userId: "userId" };
+    
     setIsMounted(true);
     const OrderFunc = async () => {
-      const ord = await getOrders(userId);
+      const ord = await getOrders({id:userDetails[0].id});
       setOrders(ord);
     };
     OrderFunc();
-  }, []);
+  }, [userDetails]);
 
   if (!isMounted) {
     return null;

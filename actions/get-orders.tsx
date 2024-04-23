@@ -2,10 +2,12 @@ import { Order } from "@/types";
 import qs from "query-string";
 
 const URL = `${process.env.NEXT_PUBLIC_API_ALL_URL}/buyer_orders`;
-
-const getOrders = async (id: string): Promise<Order[]> => {
+interface Query {
+  id?: string;
+}
+const getOrders = async (query: Query = {}): Promise<Order[]> => {
   try {
-    const queryString = qs.stringify({ buyerId: id });
+    const queryString = qs.stringify({ buyerId: query.id });
     const res = await fetch(`${URL}?${queryString}`);
 
     if (!res.ok) {
