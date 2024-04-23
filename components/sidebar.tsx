@@ -72,7 +72,7 @@ export const Sidebar = () => {
 
       //   // Send the data to your API endpoint
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/update-details`,
+        `${process.env.NEXT_PUBLIC_API_ALL_URL}/update-buyer`,
         {
           first_name,
           last_name,
