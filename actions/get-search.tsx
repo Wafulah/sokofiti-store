@@ -8,6 +8,8 @@ interface Query {
   colorId?: string;
   sizeId?: string;
   isFeatured?: boolean;
+  skip?: number;
+  take?: number;
 }
 
 const getProducts = async (query: Query = {}): Promise<Product[]> => {
@@ -19,17 +21,19 @@ const getProducts = async (query: Query = {}): Promise<Product[]> => {
         sizeId: query.sizeId,
         isFeatured: query.isFeatured,
         name: query.name,
+        skipItems: query.skip,
+        takeItems: query.take,
       },
     });
 
     const res = await fetch(url);
-    
+
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
     const data = await res.json();
-    
+
     return data;
   } catch (error) {
     console.error("[SEARCH_PRODUCTS]", error);

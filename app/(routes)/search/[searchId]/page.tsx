@@ -2,6 +2,7 @@ import Container from "@/components/ui/container";
 import Billboard from "@/components/ui/billboard";
 import ProductCard from "@/components/ui/product-card";
 import NoResults from "@/components/ui/no-results";
+import LoadMore from "@/components/searchMore";
 
 import getProducts from "@/actions/get-search";
 import getCategory from "@/actions/get-category";
@@ -13,6 +14,7 @@ import MobileFilters from "./components/mobile-filters";
 
 export const revalidate = 0;
 
+//search
 interface SearchPageProps {
   params: {
     searchId: string;
@@ -31,10 +33,12 @@ const SearchPage: React.FC<SearchPageProps> = async ({
     name: params.searchId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,
+    skip: 0,
+    take: 4,
   });
   const sizes = await getSizes();
   const colors = await getColors();
-
+  
   return (
     <div className="bg-white">
       <Container>
@@ -48,10 +52,15 @@ const SearchPage: React.FC<SearchPageProps> = async ({
             <div className="mt-6 lg:col-span-4 lg:mt-0">
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {products.map((item) => (
-                  <ProductCard key={item.id} data={item} />
+                {products.map((item, index) => (
+                  <ProductCard key={item.id} data={item} index={index} />
                 ))}
               </div>
+              <LoadMore
+                name={params.searchId}
+                colorId={searchParams.colorId}
+                sizeId={searchParams.sizeId}
+              />
             </div>
           </div>
         </div>
