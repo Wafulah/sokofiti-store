@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { ResetSchema } from "@/schemas";
 import { Input } from "@/components/ui/input";
 import {
   Form,
@@ -13,37 +12,59 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,  
+  FormMessage,
 } from "@/components/ui/form";
-import { CardWrapper } from "@/components/auth/card-wrapper"
-import { Button } from "@/components/ui/button";
-import { FormError } from "@/components/form-error";
-import { FormSuccess } from "@/components/form-success";
-import { reset } from "@/actions/reset";
+import { CardWrapper } from "@/components/auth/auth/card-wrapper";
+import { Button } from "@/components/auth/ui/button";
+import { FormError } from "@/components/auth/form-error";
+import { FormSuccess } from "@/components/auth/form-success";
+import useUserStore from "@/lib/store";
+import { toast } from "react-hot-toast";
+
+import newPassword from "@/actions/new-password";
+
+const formSchema = z.object({
+  email: z.string().min(1),
+  password: z.string().min(1),
+});
 
 export const ResetForm = () => {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
+  const userDetails = useUserStore();
 
-  const form = useForm<z.infer<typeof ResetSchema>>({
-    resolver: zodResolver(ResetSchema),
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
+      password: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof ResetSchema>) => {
-    setError("");
-    setSuccess("");
+const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  try {
+    setLoading(true);
 
-    startTransition(() => {
-      reset(values)
-        .then((data) => {
-          setError(data?.error);
-          setSuccess(data?.success);
-        });
+    //   // You can access form values like this:
+    const { email, password } = values;
+
+    //   // Send the data to your API endpoint
+    
+    const response = await newPassword({
+      email: email,
+      password: password,
     });
+    userDetails.setUserData(response);
+
+    toast.success("Registration Successful");
+  } catch (error) {
+    console.error("Error:", error);
+    toast.error("An error occurred.");
+  } finally {
+    setLoading(false);
+  }
   };
 
   return (
@@ -53,10 +74,7 @@ export const ResetForm = () => {
       backButtonHref="/auth/login"
     >
       <Form {...form}>
-        <form 
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
             <FormField
               control={form.control}
@@ -79,11 +97,7 @@ export const ResetForm = () => {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button
-            disabled={isPending}
-            type="submit"
-            className="w-full"
-          >
+          <Button disabled={isPending} type="submit" className="w-full">
             Send reset email
           </Button>
         </form>

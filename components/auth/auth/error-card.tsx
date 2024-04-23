@@ -1,6 +1,6 @@
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { LuAlertTriangle } from "react-icons/lu";
 
-import { CardWrapper } from "@/components/auth/card-wrapper";
+import { CardWrapper } from "@/components/auth/auth/card-wrapper";
 
 export const ErrorCard = () => {
   return (
@@ -10,7 +10,7 @@ export const ErrorCard = () => {
       backButtonLabel="Back to login"
     >
       <div className="w-full flex justify-center items-center">
-      <ExclamationTriangleIcon className="text-destructive" />
+      <LuAlertTriangle className="text-destructive" />
       </div>
     </CardWrapper>
   );
