@@ -10,7 +10,7 @@ interface Query {
   isFeatured?: boolean;
 }
 
-const getProducts = async (query: Query): Promise<Product[]> => {
+const getProducts = async (query: Query = {}): Promise<Product[]> => {
   try {
     const url = qs.stringifyUrl({
       url: URL,
@@ -23,12 +23,13 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     });
 
     const res = await fetch(url);
-
+    
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
-    const data: Product[] = await res.json();
+    const data = await res.json();
+    
     return data;
   } catch (error) {
     console.error("[SEARCH_PRODUCTS]", error);

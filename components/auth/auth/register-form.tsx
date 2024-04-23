@@ -36,6 +36,7 @@ export const RegisterForm = () => {
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
+  const userDetails = useUserStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,15 +56,15 @@ export const RegisterForm = () => {
       const { first_name, last_name, phone_number, email, password } = values;
 
       //   // Send the data to your API endpoint
-
-      const response = await Register(
-        first_name,
-        last_name,
-        phone_number,
-        email,
-        password
-      );
-      useUserStore.getState().setUserData(response);
+      
+      const response = await Register({
+        firstName: first_name,
+        lastName: last_name,
+        phoneNumber: phone_number,
+        email: email,
+        password: password,
+      });
+      userDetails.setUserData(response);
 
       toast.success("Registration Successful");
     } catch (error) {

@@ -80,15 +80,7 @@ const Navbar = () => {
               <NavbarActions />
             </div>
           </div>
-          {/* <div className="w-11/12 h-1/3 mx-auto flex justify-between items-center">
-            <Link href="/" className="ml-1 flex lg:ml-0 gap-x-2">
-              <p className="font-bold text-base lg:text-xl">Home</p>
-            </Link>
-            <Link href="/store" className="flex ml-2 mr-2 gap-x-2">
-              <p className=" font-bold text-base lg:text-xl">Stores</p>
-            </Link>
-            <MainNav data={categories} /> 
-          </div> */}
+          
           <div className="gap-2 lg:w-1/2 w-11/12 h-1/2 mx-auto flex justify-between items-center">
             <Form {...form}>
               <form

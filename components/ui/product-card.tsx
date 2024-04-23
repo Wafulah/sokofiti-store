@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
@@ -15,15 +16,18 @@ import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
 
+const variants = { hidden: { opacity: 0 }, visibile: { opacity: 1 } };
+
 interface ProductCard {
   data: Product;
+  index: number;
 }
-
-const ProductCard: React.FC<ProductCard> = ({ data }) => {
+//useCart
+const ProductCard: React.FC<ProductCard> = ({ data, index }) => {
   const previewModal = usePreviewModal();
   const cart = useCart();
   const router = useRouter();
-  
+
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
   };
@@ -41,7 +45,10 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: index * 0.25, ease: "easeInOut", duration: 0.5 }}
       onClick={handleClick}
       className="bg-white group cursor-pointer border rounded-xl p-2 space-y-4"
     >
@@ -70,13 +77,12 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
       <div>
         <p className="font-semibold text-lg">{data.name}</p>
         {/* <p className="text-sm text-gray-500">{data.category?.name}</p> */}
-      {/* Price & Reiew */}
-      <div className="flex items-center justify-between">
-        <Currency value={data?.price} />
+        {/* Price & Reiew */}
+        <div className="flex items-center justify-between">
+          <Currency value={data?.price} />
+        </div>
       </div>
-      </div>
-      
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,7 @@
+import qs from "query-string";
 import { User } from "@/types";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/register-buyer`;
+const URL = `${process.env.NEXT_PUBLIC_API_ALL_URL}/register-buyer`;
 
 interface Response {
   id?: string;
@@ -10,33 +11,46 @@ interface Response {
   lastName?: string;
 }
 
-const Register = async (
-  firstName: string,
-  lastName: string,
-  phoneNumber: string,
-  email: string,
-  password: string
-): Promise<Response> => {
-  const requestBody = {
-    firstName: firstName,
-    lastName: lastName,
-    phoneNumber: phoneNumber,
-    email: email,
-    password: password,
-  };
+interface Query {
+  email?: string;
+  phoneNumber?: string;
+  firstName?: string;
+  lastName?: string;
+  password?: string;
+}
 
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(requestBody),
-  };
-
+const Register = async (query: Query): Promise<Response> => {
   try {
-    const res = await fetch(`${URL}`, requestOptions);
+    const url = qs.stringifyUrl({
+      url: URL,
+      query: {
+        phoneNumber: query.phoneNumber,
+        firstName: query.firstName,
+        lastName: query.lastName,
+        email: query.email,
+        password: query.password,
+      },
+    });
+    const data = {
+      phoneNumber: query.phoneNumber,
+      firstName: query.firstName,
+      lastName: query.lastName,
+      email: query.email,
+      password: query.password,
+    };
+    
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const res = await fetch(url, requestOptions);
     if (!res.ok) {
       throw new Error("Failed to register user");
     }
-    const userData: Response = await res.json();
+    const userData = await res.json();
     return userData;
   } catch (error) {
     console.error("Error registering user", error);

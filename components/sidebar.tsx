@@ -6,7 +6,7 @@ import * as z from "zod";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useUserStore } from "@/lib/store";
+import useUserStore from "@/lib/store";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -42,15 +42,17 @@ export const Sidebar = () => {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
-  const userDetails = useUserStore((state) => state);
+  const userDetails = useUserStore((state) => state.items);
+  const userData = useUserStore();
+  
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      first_name: userDetails.firstName,
-      last_name: userDetails.lastName,
-      email: userDetails.email,
-      phone_number: userDetails.phoneNumber,
+      first_name: userDetails[0].firstName,
+      last_name: userDetails[0].lastName,
+      email: userDetails[0].email,
+      phone_number: userDetails[0].phoneNumber,
     },
   });
 
@@ -71,7 +73,7 @@ export const Sidebar = () => {
           phone_number,
         }
       );
-      useUserStore.getState().setUserData(response.data);
+      userData.setUserData(response.data);
 
       toast.success("Details Succesfully updated");
 

@@ -20,7 +20,7 @@ interface StoreCard {
 }
 
 const StoreCard: React.FC<StoreCard> = ({ data }) => {
-  console.log(data);
+  
   const previewModal = usePreviewModal();
   const cart = useCart();
   const router = useRouter();

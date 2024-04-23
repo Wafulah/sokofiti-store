@@ -1,7 +1,7 @@
 import qs from "query-string";
 import { User } from "@/types";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/buyer`;
+const URL = `${process.env.NEXT_PUBLIC_API_ALL_URL}/buyer-login`;
 
 interface Response {
   id?: string;
@@ -31,6 +31,7 @@ const Login = async (query: Query): Promise<Response> => {
       throw new Error("Failed to Login User ");
     }
     const userData: Response = await res.json();
+    
     return userData;
   } catch (error) {
     console.error("Error Login user", error);

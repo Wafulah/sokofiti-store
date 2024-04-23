@@ -8,15 +8,19 @@ interface Query {
   colorId?: string;
   sizeId?: string;
   isFeatured?: boolean;
+  skip?: number;
+  take?: number;
 }
 
-const getProducts = async (query: Query): Promise<Product[]> => {
+const getProducts = async (query: Query = {}): Promise<Product[]> => {
   try {
     const url = qs.stringifyUrl({
       url: URL,
       query: {
-        colorId: query.colorId,
-        sizeId: query.sizeId,
+        color: query.colorId,
+        size: query.sizeId,
+        skipItems: query.skip,
+        takeItems: query.take,
         categoryId: query.categoryId,
         isFeatured: query.isFeatured,
       },
@@ -27,8 +31,8 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
-
-    const data: Product[] = await res.json();
+    const data = await res.json();
+    
     return data;
   } catch (error) {
     console.error("[GET_PRODUCTS]", error);

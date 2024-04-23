@@ -51,6 +51,14 @@ export interface User {
   password?: string;
 }
 
+export interface UserProfile {
+  id?: string;
+  email?: string;
+  phoneNumber?: string;
+  firstName?: string;
+  lastName?: string;
+}
+
 export interface Category {
   id: string;
   name: string;

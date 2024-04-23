@@ -5,7 +5,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { Product } from '@/types';
 import { FaExclamationTriangle as AlertTriangle } from 'react-icons/fa';
 
-
+//useCart
 interface CartStore {
   items: Product[];
   addItem: (data: Product) => void;

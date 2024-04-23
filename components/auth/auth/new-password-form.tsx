@@ -43,7 +43,8 @@ export const NewPasswordForm = () => {
     },
   });
 
-  const userDetails = useUserStore((state) => state);
+  const userDetails = useUserStore((state) => state.items);
+  const userData = useUserStore();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -54,8 +55,8 @@ export const NewPasswordForm = () => {
       // Send the data to your API endpoint
 
       // // window.location.href = `/search/${name}`;
-      const changePassword = await newPassword(password, userDetails.id);
-      useUserStore.getState().setUserData(changePassword);
+      const changePassword = await newPassword(password, userDetails[0].id);
+      userData.setUserData(changePassword);
 
       toast.success("Password changed Successfully");
     } catch (error) {

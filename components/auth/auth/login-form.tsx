@@ -10,7 +10,6 @@ import useUserStore from "@/lib/store";
 
 import { toast } from "react-hot-toast";
 
-// import { LoginSchema } from "@/schemas";
 import { Input } from "@/components/ui/input";
 import {
   Form,
@@ -52,22 +51,27 @@ export const LoginForm = () => {
       password: "",
     },
   });
-  const userDetails = useUserStore((state) => state);
+  const userDetails = useUserStore();
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-
+       setError("");
+       setSuccess("");
       //   // You can access form values like this:
       const { email, password } = values;
 
       //   // Send the data to your API endpoint
 
       // // window.location.href = `/search/${name}`;
-      const login = await Login({email :email, password:password});
-      useUserStore.getState().setUserData(login);
+      const login = await Login({ email: email, password: password });
 
-      toast.success("Login Successful");
-       window.location.href = `/cart`;
+      if (login.id) {
+        userDetails.setUserData(login);
+        setSuccess("login Successful");
+        window.location.href = `/cart`;
+      } else {
+        setError("Password incorrect!");
+      }
     } catch (error) {
       console.error("Login-form Error:", error);
       toast.error("An error occurred.");
