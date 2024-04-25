@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import useCart from "@/hooks/use-cart";
+import type { ProductCart } from "@/types";
 
 import Modal from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
@@ -25,16 +25,23 @@ import { useStoreModal } from "@/hooks/use-store-modal";
 import Button from "@/components/ui/button";
 
 const formSchema = z.object({
-  name: z.string().min(1),
+  county: z.string().min(1),
+  subCounty: z.string().min(1),
   phoneNo: z.string().refine((phoneNo) => /^\d{12}$/.test(phoneNo), {
     message: "Phone number must start with 254",
   }),
 });
 
-export const StoreModal = () => {
+export const StoreModal = ({
+  userIds,
+  items,
+}: {
+  userIds: string;
+  items: ProductCart[];
+}) => {
   const storeModal = useStoreModal();
   const router = useRouter();
-  const items = useCart((state) => state.items);
+
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -42,13 +49,12 @@ export const StoreModal = () => {
     setIsModalOpen(false);
   };
 
-  
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      phoneNo: "254712345678", // Initialize it as an integer with exactly 9 digits
+      county: "",
+      subCounty: "",
+      phoneNo: "",
     },
   });
 
@@ -57,15 +63,18 @@ export const StoreModal = () => {
       setLoading(true);
 
       // You can access form values like this:
-      const { name, phoneNo } = values;
+      const { county, subCounty, phoneNo } = values;
 
       // Send the data to your API endpoint
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/mpesa_pay`,
         {
-          name,
+          county,
+          subCounty,
           phoneNo,
           productIds: items.map((item) => item.id),
+          productQuantity: items.map((item) => item.items),
+          buyerId: userIds,
         }
       );
 
@@ -89,7 +98,7 @@ export const StoreModal = () => {
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                   <FormField
                     control={form.control}
-                    name="name"
+                    name="county"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>County</FormLabel>
@@ -97,6 +106,23 @@ export const StoreModal = () => {
                           <Input
                             disabled={loading}
                             placeholder="County"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="subCounty"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>sub-county</FormLabel>
+                        <FormControl>
+                          <Input
+                            disabled={loading}
+                            placeholder="subCounty"
                             {...field}
                           />
                         </FormControl>
@@ -114,7 +140,7 @@ export const StoreModal = () => {
                         <FormControl>
                           <Input
                             disabled={loading}
-                            placeholder="Phone Number"
+                            placeholder="254712345678"
                             {...field}
                           />
                         </FormControl>

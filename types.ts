@@ -11,6 +11,20 @@ export interface Product {
   images: Image[];
 }
 
+export interface ProductCart {
+  id: string;
+  category: Category;
+  name: string;
+  price: string;
+  isFeatured: boolean;
+  quantity: string;
+  description: string;
+  items: string;
+  size: Size;
+  color: Color;
+  images: Image[];
+}
+
 export interface Store {
   id: string;
   name: string;

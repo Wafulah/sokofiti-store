@@ -19,13 +19,13 @@ const Summary = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [details, setDetails] = useState(false);
   const userDetails = useUserStore((state) => state.items);
-  
+
   const onCheckout = () => {
     userDetails[0].id
       ? setIsModalOpen(true)
       : (window.location.href = `/login`);
   };
-  
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -50,13 +50,14 @@ const Summary = () => {
       `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
       {
         productIds: items.map((item) => item.id),
+        productQuantity: items.map((item) => item.items),
         buyerId: userDetails[0].id,
       }
     );
 
     window.location = response.data.url;
   };
-
+  const userIds: string = userDetails[0].id as string;
   const onMpesa = async () => {
     setIsModalOpen(false);
     setDetails(true);
@@ -78,7 +79,7 @@ const Summary = () => {
           </Modal>
         </div>
       )}
-      {details && <StoreModal />}
+      {details && <StoreModal items={items} userIds={userIds} />}
       <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
 
       <div className="mt-6 space-y-4">
