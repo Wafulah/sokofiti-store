@@ -4,13 +4,13 @@ import { FaShoppingCart as ShoppingCart } from "react-icons/fa";
 
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
-import { Product } from "@/types";
+import { ProductCart } from "@/types";
 import useCart from "@/hooks/use-cart";
 
 interface InfoProps {
-  data: Product;
+  data: ProductCart;
 }
-
+//productCart
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
 
