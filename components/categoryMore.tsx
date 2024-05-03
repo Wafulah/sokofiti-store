@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { Product } from "@/types";
+import { Product,ProductCart } from "@/types";
 
 import { useInView } from "react-intersection-observer";
 import ProductList from "@/components/product-list";
@@ -41,7 +41,7 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {data.map((item, index) => (
-          <ProductCard key={item.id} data={item} index={index} />
+          <ProductCard key={item.id} data={item as ProductCart} index={index} />
         ))}
       </div>
       <section className="flex justify-center items-center w-full">
