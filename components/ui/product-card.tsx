@@ -14,12 +14,12 @@ import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
-import { Product } from "@/types";
+import { ProductCart } from "@/types";
 
 const variants = { hidden: { opacity: 0 }, visibile: { opacity: 1 } };
 
 interface ProductCard {
-  data: Product;
+  data: ProductCart;
   index: number;
 }
 //useCart
