@@ -1,13 +1,12 @@
 "use client";
 
 import * as z from "zod";
-import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import type { ProductCart } from "@/types";
 
 import Modal from "@/components/ui/modal";
@@ -23,6 +22,7 @@ import {
 } from "@/components/ui/form";
 import { useStoreModal } from "@/hooks/use-store-modal";
 import Button from "@/components/ui/button";
+import MpesaOrder from "@/actions/mpesa-checkout";
 
 const formSchema = z.object({
   county: z.string().min(1),
@@ -40,7 +40,7 @@ export const StoreModal = ({
   items: ProductCart[];
 }) => {
   const storeModal = useStoreModal();
-  const router = useRouter();
+  
 
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -64,22 +64,17 @@ export const StoreModal = ({
 
       // You can access form values like this:
       const { county, subCounty, phoneNo } = values;
-
-      // Send the data to your API endpoint
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/mpesa_pay`,
-        {
-          county,
-          subCounty,
-          phoneNo,
-          productIds: items.map((item) => item.id),
-          productQuantity: items.map((item) => item.items),
-          buyerId: userIds,
-        }
-      );
-
+      const response = await MpesaOrder({
+        county: county,
+        subCounty,
+        phoneNo: phoneNo,
+        productIds: Object.fromEntries(
+          items.map((item) => [item.id, item.items])
+        ),
+        buyerId: userIds,
+      });
       // Handle the response or redirection here
-      window.location = response.data.url;
+      window.location.href = response.url.toString();
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred.");
