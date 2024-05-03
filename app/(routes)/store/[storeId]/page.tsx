@@ -4,6 +4,7 @@ import Info from "@/components/info-store";
 import getStore from "@/actions/get-store";
 import getStores from "@/actions/get-stores";
 import Container from "@/components/ui/container";
+import { ProductCart } from "@/types";
 
 export const revalidate = 0;
 
@@ -36,7 +37,7 @@ const StorePage: React.FC<StorePageProps> = async ({ params }) => {
             </div>
           </div>
           <hr className="my-10" />
-          <ProductList title="Store Items" items={product.products} />
+          <ProductList title="Store Items" items={product.products as ProductCart[]} />
         </div>
       </Container>
     </div>
