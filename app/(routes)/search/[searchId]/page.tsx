@@ -11,6 +11,7 @@ import getColors from "@/actions/get-colors";
 
 import Filter from "./components/filter";
 import MobileFilters from "./components/mobile-filters";
+import { ProductCart } from "@/types";
 
 export const revalidate = 0;
 
@@ -38,7 +39,7 @@ const SearchPage: React.FC<SearchPageProps> = async ({
   });
   const sizes = await getSizes();
   const colors = await getColors();
-  
+
   return (
     <div className="bg-white">
       <Container>
@@ -53,7 +54,11 @@ const SearchPage: React.FC<SearchPageProps> = async ({
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {products.map((item, index) => (
-                  <ProductCard key={item.id} data={item} index={index} />
+                  <ProductCard
+                    key={item.id}
+                    data={item as ProductCart}
+                    index={index}
+                  />
                 ))}
               </div>
               <LoadMore
