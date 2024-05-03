@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { Product } from "@/types";
+import { Product,ProductCart } from "@/types";
 
 import { useInView } from "react-intersection-observer";
 import ProductList from "@/components/product-list";
@@ -29,7 +29,7 @@ function LoadMore() {
   return (
     <>
       <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-        <ProductList title="" items={data} />
+        <ProductList title="" items={data as ProductCart[]} />
       </div>
       <section className="flex justify-center items-center w-full">
         <div ref={ref}>
