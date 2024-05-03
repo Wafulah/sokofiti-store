@@ -11,6 +11,7 @@ import getColors from "@/actions/get-colors";
 
 import Filter from "./components/filter";
 import MobileFilters from "./components/mobile-filters";
+import { ProductCart } from "@/types";
 
 export const revalidate = 0;
 
@@ -28,10 +29,13 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   params,
   searchParams,
 }) => {
-  
   const sizes = await getSizes();
   const colors = await getColors();
-  const products = await getCategory({categoryId:params.categoryId,skip:0,take:4});
+  const products = await getCategory({
+    categoryId: params.categoryId,
+    skip: 0,
+    take: 4,
+  });
 
   return (
     <div className="bg-white">
@@ -48,7 +52,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {products.map((item, index) => (
-                  <ProductCard key={item.id} data={item} index={index} />
+                  <ProductCard
+                    key={item.id}
+                    data={item as ProductCart}
+                    index={index}
+                  />
                 ))}
               </div>
               <LoadMore
