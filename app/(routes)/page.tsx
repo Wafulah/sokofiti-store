@@ -6,6 +6,7 @@ import Billboard from "@/components/ui/billboard";
 import CategoryList from "@/components/ui/CategoryList";
 import Container from "@/components/ui/container";
 import Offer from "@/components/offer";
+import { ProductCart } from "@/types";
 
 import LoadMore from "@/components/loadMore";
 
@@ -25,7 +26,7 @@ const HomePage = async () => {
         <CategoryList title="Explore Categories" data={categories} />
         <Offer />
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-          <ProductList title="Featured Products" items={products} />
+          <ProductList title="Featured Products" items={products as ProductCart[]} />
           <LoadMore />
         </div>
       </div>
