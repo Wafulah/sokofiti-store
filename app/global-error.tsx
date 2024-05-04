@@ -1,4 +1,6 @@
 "use client";
+
+import { useState } from "react";
 import { Urbanist } from "next/font/google";
 import Navbar from "@/components/navbar";
 import BottomNav from "@/components/bottom-nav";
@@ -14,6 +16,15 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        setIsMounted(true);
+      }, []);
+    
+      if (!isMounted) {
+        return null;
+      }
+    
   return (
     <html className="w-[100vw]" lang="en">
       <body className={font.className}>
