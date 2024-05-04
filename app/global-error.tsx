@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import {useEffect,useState } from "react";
 import { Urbanist } from "next/font/google";
 import Navbar from "@/components/navbar";
 import BottomNav from "@/components/bottom-nav";
