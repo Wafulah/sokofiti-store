@@ -16,15 +16,15 @@ function LoadMore() {
   const { ref, inView } = useInView();
   const [data, setData] = useState<Product[]>([]);
 
-  useEffect(() => {
-    if (inView) {
+  // useEffect(() => {
+  //   if (inView) {
        
-      getProducts({ skip: skip, take: take }).then((res) => {
-        setData(prevData => [...prevData, ...res]);
-        skip += take;
-      });
-    }
-  }, [inView]);
+  //     getProducts({ skip: skip, take: take }).then((res) => {
+  //       setData(prevData => [...prevData, ...res]);
+  //       skip += take;
+  //     });
+  //   }
+  // }, [inView]);
 
   return (
     <>
