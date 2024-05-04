@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { Product,ProductCart } from "@/types";
+import { Product, ProductCart } from "@/types";
 
 import { useInView } from "react-intersection-observer";
 import ProductList from "@/components/product-list";
@@ -31,11 +31,11 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
         colorId: colorId,
         sizeId: sizeId,
       }).then((res) => {
-        setData([...data, ...res]);
+        setData(prevData => [...prevData, ...res]);
         skip += take;
       });
     }
-  }, [inView, data, categoryId, colorId, sizeId]);
+  }, [inView, categoryId, colorId, sizeId]);
 
   return (
     <>

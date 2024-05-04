@@ -13,7 +13,7 @@ interface Query {
 const getCategory = async (query: Query = {}): Promise<Product[]> => {
   try {
     const url = qs.stringifyUrl({
-      url: `URL/${query.categoryId}`,
+      url: `${URL}/${query.categoryId}`,
       query: {
         color: query.colorId,
         size: query.sizeId,
