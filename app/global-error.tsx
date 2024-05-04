@@ -24,7 +24,10 @@ export default function GlobalError({
       if (!isMounted) {
         return null;
       }
-    
+      useEffect(() => {
+        // Log the error to an error reporting service
+        console.error(error)
+      }, [error])
   return (
     <html className="w-[100vw]" lang="en">
       <body className={font.className}>
