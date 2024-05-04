@@ -20,14 +20,15 @@ export default function GlobalError({
     useEffect(() => {
         setIsMounted(true);
       }, []);
-    
-      if (!isMounted) {
-        return null;
-      }
       useEffect(() => {
         // Log the error to an error reporting service
         console.error(error)
       }, [error])
+    
+      if (!isMounted) {
+        return null;
+      }
+    
   return (
     <html className="w-[100vw]" lang="en">
       <body className={font.className}>
