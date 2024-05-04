@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { Product,ProductCart } from "@/types";
+import { Product, ProductCart } from "@/types";
 
 import { useInView } from "react-intersection-observer";
 import ProductList from "@/components/product-list";
@@ -16,15 +16,14 @@ function LoadMore() {
   const { ref, inView } = useInView();
   const [data, setData] = useState<Product[]>([]);
 
-  // useEffect(() => {
-  //   if (inView) {
-       
-  //     getProducts({ skip: skip, take: take }).then((res) => {
-  //       setData(prevData => [...prevData, ...res]);
-  //       skip += take;
-  //     });
-  //   }
-  // }, [inView]);
+  useEffect(() => {
+    if (inView) {
+      getProducts({ skip: skip, take: take }).then((res) => {
+        setData([...data, ...res]);
+        skip += take;
+      });
+    }
+  }, [inView, data]);
 
   return (
     <>

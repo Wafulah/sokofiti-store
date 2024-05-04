@@ -22,20 +22,20 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
   const { ref, inView } = useInView();
   const [data, setData] = useState<Product[]>([]);
 
-  // useEffect(() => {
-  //   if (inView) {
-  //     getCategory({
-  //       skip: skip,
-  //       take: take,
-  //       categoryId: categoryId,
-  //       colorId: colorId,
-  //       sizeId: sizeId,
-  //     }).then((res) => {
-  //       setData(prevData => [...prevData, ...res]);
-  //       skip += take;
-  //     });
-  //   }
-  // }, [inView, categoryId, colorId, sizeId]);
+  useEffect(() => {
+    if (inView) {
+      getCategory({
+        skip: skip,
+        take: take,
+        categoryId: categoryId,
+        colorId: colorId,
+        sizeId: sizeId,
+      }).then((res) => {
+        setData([...data, ...res]);
+        skip += take;
+      });
+    }
+  }, [inView, categoryId, colorId, sizeId,data]);
 
   return (
     <>
