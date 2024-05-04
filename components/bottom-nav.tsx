@@ -23,7 +23,7 @@ const BottomNav = () => {
           <FaStore className="font-bold text-2xl" />
           <p className="opacity-75 font-bold text-base lg:text-xl">Stores</p>
         </Link>
-        <Link href="/store" className="flex flex-col items-center justify-center gap-x-2">
+        <Link href="/sms" className="flex flex-col items-center justify-center gap-x-2">
           <FaMessage className="font-bold text-2xl" />
           <p className="opacity-75 font-bold text-base lg:text-xl">SmS</p>
         </Link>

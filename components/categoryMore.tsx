@@ -31,11 +31,11 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
         colorId: colorId,
         sizeId: sizeId,
       }).then((res) => {
-        setData([...data, ...res]);
+        setData((prevData) => [...prevData, ...res]);
         skip += take;
       });
     }
-  }, [inView, categoryId, colorId, sizeId,data]);
+  }, [inView, categoryId, colorId, sizeId]);
 
   return (
     <>

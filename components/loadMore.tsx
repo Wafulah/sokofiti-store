@@ -19,11 +19,11 @@ function LoadMore() {
   useEffect(() => {
     if (inView) {
       getProducts({ skip: skip, take: take }).then((res) => {
-        setData([...data, ...res]);
+        setData((prevData) => [...prevData, ...res]);
         skip += take;
       });
     }
-  }, [inView, data]);
+  }, [inView]);
 
   return (
     <>
