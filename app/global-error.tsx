@@ -1,32 +1,29 @@
+"use client";
 import { Urbanist } from "next/font/google";
-
-import ModalProvider from "@/providers/modal-provider";
-import ToastProvider from "@/providers/toast-provider";
 import Navbar from "@/components/navbar";
 import BottomNav from "@/components/bottom-nav";
 import Footer from "@/components/footer";
-
 import "./globals.css";
 
 const font = Urbanist({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Glamarace",
-  description: "Glamarace - The place for all your purchases.",
-};
-
-export default function RootLayout({
-  children,
+export default function GlobalError({
+  error,
+  reset,
 }: {
-  children: React.ReactNode;
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   return (
     <html className="w-[100vw]" lang="en">
       <body className={font.className}>
-        <ToastProvider />
-        <ModalProvider />
         <Navbar />
-        {children}
+
+        <h2 className="text-bold bg-black">Something went wrong!</h2>
+        <button onClick={() => reset()} className="bg-[rgb(255,55,0)]">
+          Try again
+        </button>
+
         <Footer />
         <BottomNav />
       </body>
