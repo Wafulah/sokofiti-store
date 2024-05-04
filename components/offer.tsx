@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import React, { useEffect, useRef } from "react";
 import "keen-slider/keen-slider.min.css";
-import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react";
+import { useKeenSlider } from "keen-slider/react";
 import Link from "next/link";
-import Image from "next/image";
+import NextImage from "next/image";
 import getOffers from "@/actions/get-offers";
 
 const Offer = () => {
@@ -13,56 +13,82 @@ const Offer = () => {
     },
     [
       (slider) => {
-        let timeout: ReturnType<typeof setTimeout>
-        let mouseOver = false
+        let timeout: ReturnType<typeof setTimeout>;
+        let mouseOver = false;
         function clearNextTimeout() {
-          clearTimeout(timeout)
+          clearTimeout(timeout);
         }
         function nextTimeout() {
-          clearTimeout(timeout)
-          if (mouseOver) return
+          clearTimeout(timeout);
+          if (mouseOver) return;
           timeout = setTimeout(() => {
-            slider.next()
-          }, 2000)
+            slider.next();
+          }, 2000);
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
+            mouseOver = true;
+            clearNextTimeout();
+          });
           slider.container.addEventListener("mouseout", () => {
-            mouseOver = false
-            nextTimeout()
-          })
-          nextTimeout()
-        })
-        slider.on("dragStarted", clearNextTimeout)
-        slider.on("animationEnded", nextTimeout)
-        slider.on("updated", nextTimeout)
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
       },
     ]
-  )
+  );
 
-  const res = [];
+  const links = [
+    {
+      id: 1,
+      link: "/category/weddings",
+      image: "/one.jpg",
+      name: "Weddings",
+    },
+    {
+      id: 2,
+      link: "/category/suits",
+      image: "/two.jpg",
+      name: "Suits",
+    },
+    {
+      id: 3,
+      link: "/category/traditional",
+      image: "/three.jpg",
+      name: "Traditional",
+    },
+    {
+      id: 4,
+      link: "/category/latest",
+      image: "/four.jpg",
+      name: "Latest",
+    },
+  ];
 
   return (
-    <div className="h-52 lg:w-2/5 w-3/4 mx-auto flex justify-center overflow-hidden lg:overflow-auto">
-      <div
-        style={{ perspective: "600px" }}
-        className="relative h-full lg:w-full w-11/12 mx-auto overflow-hidden lg:overflow-auto"
-      >
-        <div
-          ref={sliderRef}
-          style={{
-            transformStyle: "preserve-3d",
-            overflow: "visible",
-            transform: "translateZ(-288px)",
-          }}
-          className="absolute keen-slider h-full w-full rounded-md"
-        >
-          
-        </div>
-      </div>
+    <div
+      ref={sliderRef}
+      className=" keen-slider h-52 
+      lg:h-64 lg:w-[40vw] w-3/4 mx-auto flex justify-between  "
+    >
+       {links.map((link, index) => (
+        <Link key={index} href={link.link}>
+          <div className="keen-slider__slide  mx-2 h-52 
+          lg:h-64 lg:w-[20vw] w-3/4 relative rounded-md aspect-square inset-0">
+            <NextImage
+              src={link.image}
+              fill
+              alt={link.name}
+              className="object-cover object-center"
+            />
+          </div>
+        </Link>
+      ))} 
     </div>
   );
 };

@@ -13,7 +13,7 @@ import LoadMore from "@/components/loadMore";
 export const revalidate = 0;
 
 const HomePage = async () => {
-  const products = await getProducts({ skip: 4, take: 4 });
+  const products = await getProducts({ skip: 0, take: 4 });
 
   const categories = await getCategories();
  
@@ -24,7 +24,8 @@ const HomePage = async () => {
           data={billboard}
         /> */}
         <CategoryList title="Explore Categories" data={categories} />
-        <Offer />
+        <div className="mx-auto w-3/4 lg:w-2/4 lg:h-64 h-52">
+        <Offer /></div>
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
           <ProductList title="Featured Products" items={products as ProductCart[]} />
           <LoadMore />
