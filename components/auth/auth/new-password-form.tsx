@@ -63,6 +63,7 @@ export const NewPasswordForm = () => {
     } catch (error) {
       console.error("Password-form Error:", error);
       toast.error("An error occurred.");
+      throw error;
     } finally {
       setLoading(false);
     }

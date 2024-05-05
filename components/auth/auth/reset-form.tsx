@@ -62,6 +62,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
   } catch (error) {
     console.error("Error:", error);
     toast.error("An error occurred.");
+    throw error;
   } finally {
     setLoading(false);
   }

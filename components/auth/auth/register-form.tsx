@@ -70,6 +70,7 @@ export const RegisterForm = () => {
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred.");
+      throw error;
     } finally {
       setLoading(false);
     }

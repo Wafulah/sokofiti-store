@@ -75,6 +75,7 @@ export const LoginForm = () => {
     } catch (error) {
       console.error("Login-form Error:", error);
       toast.error("An error occurred.");
+      throw error;
     } finally {
       setLoading(false);
     }
