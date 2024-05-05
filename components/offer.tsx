@@ -84,7 +84,7 @@ const Offer = () => {
               src={link.image}
               fill
               alt={link.name}
-              className="object-fit object-center"
+              className="object-cover object-center"
             />
           </div>
         </Link>
