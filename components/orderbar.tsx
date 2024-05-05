@@ -1,8 +1,4 @@
-
-import {
-  FaStopwatch,
-  FaCircleCheck,
-} from "react-icons/fa6";
+import { FaStopwatch, FaCircleCheck } from "react-icons/fa6";
 
 import CartItem from "@/app/(routes)/orders/components/cart-item";
 import { Order } from "@/types";
@@ -149,14 +145,16 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
 
           <div className="h-3/4 w-11/12 mx-auto bg-white rounded-lg flex justify-center ">
             <ScrollArea className="lg:col-span-7 w-11/12 h-full whitespace-nowrap mx-auto">
-              {order.orderItems.length === 0 && (
+              {order.orderItems.length === 0 ? (
                 <p className="text-neutral-500">No items added to cart.</p>
+              ) : (
+                <ul>
+                  {order.orderItems.map((item) => (
+                    <CartItem key={item.id} data={item} />
+                  ))}
+                </ul>
               )}
-              <ul>
-                {order.orderItems.map((item) => (
-                  <CartItem key={item.id} data={item} />
-                ))}
-              </ul>
+
               <ScrollBar orientation="vertical" />
             </ScrollArea>
           </div>
