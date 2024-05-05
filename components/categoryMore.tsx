@@ -35,11 +35,15 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
         skip += take;
       });
     }
-  }, [inView, categoryId, colorId, sizeId, data]);
+  }, [inView, categoryId, colorId, sizeId,data]);
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {data.map((item, index) => (
+          <ProductCard key={item.id} data={item as ProductCart} index={index} />
+        ))}
+      </div>
       <section className="flex justify-center items-center w-full">
         <div ref={ref}>
           <Image

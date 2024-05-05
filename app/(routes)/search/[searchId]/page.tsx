@@ -61,11 +61,11 @@ const SearchPage: React.FC<SearchPageProps> = async ({
                   />
                 ))}
               </div>
-              <LoadMore
+              {/* <LoadMore
                 name={params.searchId}
                 colorId={searchParams.colorId}
                 sizeId={searchParams.sizeId}
-              />
+              /> */}
             </div>
           </div>
         </div>

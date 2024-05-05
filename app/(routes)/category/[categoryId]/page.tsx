@@ -58,11 +58,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                   />
                 ))}
               </div>
-              <LoadMore
+              {/* <LoadMore
                 categoryId={params.categoryId}
                 colorId={searchParams.colorId}
                 sizeId={searchParams.sizeId}
-              />
+              /> */}
             </div>
           </div>
         </div>
