@@ -77,18 +77,16 @@ const Offer = () => {
       lg:h-64 lg:w-[40vw] w-3/4 flex justify-center rounded-md"
     >
       {links.map((link, index) => (
-        <Link key={index} href={link.link}>
-          <div
-            className="keen-slider__slide   h-52 
-          lg:h-64 w-full relative rounded-md "
-          >
+        <Link key={index} href={link.link} className="keen-slider__slide   h-52 
+          lg:h-64 w-full relative rounded-md aspect-square inset-0" >
+         
             <NextImage
               src={link.image}
               fill
               alt={link.name}
-              className="object-cover "
+              className="object-cover object-center"
             />
-          </div>
+          
         </Link>
       ))}
     </div>
