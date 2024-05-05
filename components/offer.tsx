@@ -74,7 +74,7 @@ const Offer = () => {
     <div
       ref={sliderRef}
       className=" keen-slider h-52 
-      lg:h-64 lg:w-[40vw] w-3/4 flex justify-center"
+      lg:h-64 lg:w-[40vw] w-3/4 flex justify-center rounded-md"
     >
        {links.map((link, index) => (
         <Link key={index} href={link.link}>
@@ -84,7 +84,7 @@ const Offer = () => {
               src={link.image}
               fill
               alt={link.name}
-              className="object-contain object-center"
+              className="object-fit object-center"
             />
           </div>
         </Link>
