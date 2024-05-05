@@ -16,6 +16,8 @@ const useUserStore = create(
       items: [],
       setUserData: (data: UserProfile) => {
         set({ items: [] });
+        toast.error("Kindly Log out first!");
+        console.log("users");
         const currentItems = get().items;
         if (currentItems.length !== 0) {
           return toast.error("Kindly Log out first!");
