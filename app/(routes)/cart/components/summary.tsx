@@ -10,7 +10,7 @@ import Modal from "@/components/ui/modal";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
 import { StoreModal } from "@/components/modals/store-modal";
-import useUserStore from "@/lib/store";
+
 
 const Summary = () => {
   const searchParams = useSearchParams();
@@ -18,13 +18,9 @@ const Summary = () => {
   const removeAll = useCart((state) => state.removeAll);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [details, setDetails] = useState(false);
-  const userDetails = useUserStore((state) => state.items);
+  
 
-  const onCheckout = () => {
-    userDetails[0].id
-      ? setIsModalOpen(true)
-      : (window.location.href = `/login`);
-  };
+  
 
   const closeModal = () => {
     setIsModalOpen(false);
