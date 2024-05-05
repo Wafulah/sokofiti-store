@@ -74,7 +74,7 @@ const Offer = () => {
     <div
       ref={sliderRef}
       className=" keen-slider h-52 
-      lg:h-64 lg:w-[40vw] w-3/4 mx-auto flex justify-between  "
+      lg:h-64 lg:w-[40vw] w-3/4 flex justify-center"
     >
        {links.map((link, index) => (
         <Link key={index} href={link.link}>
