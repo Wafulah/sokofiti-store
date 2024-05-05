@@ -80,13 +80,13 @@ const Offer = () => {
         <Link key={index} href={link.link}>
           <div
             className="keen-slider__slide   h-52 
-          lg:h-64 w-full relative rounded-md aspect-square inset-0"
+          lg:h-64 w-full relative rounded-md "
           >
             <NextImage
               src={link.image}
               fill
               alt={link.name}
-              className="object-cover object-center"
+              className="object-cover "
             />
           </div>
         </Link>
