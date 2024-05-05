@@ -20,7 +20,7 @@ import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import Register from "@/actions/register";
 import { toast } from "react-hot-toast";
-import useUserStore from "@/lib/store";
+
 
 const formSchema = z.object({
   first_name: z.string().min(1),
@@ -36,7 +36,7 @@ export const RegisterForm = () => {
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
-  const userDetails = useUserStore();
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,7 +64,7 @@ export const RegisterForm = () => {
         email: email,
         password: password,
       });
-      userDetails.setUserData(response);
+      
 
       toast.success("Registration Successful");
     } catch (error) {

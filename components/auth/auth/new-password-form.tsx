@@ -21,7 +21,7 @@ import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import newPassword from "@/actions/new-password";
 import { toast } from "react-hot-toast";
-import useUserStore from "@/lib/store";
+
 
 const formSchema = z.object({
   email: z.string().min(1),
@@ -36,7 +36,7 @@ export const NewPasswordForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
-  const userDetails = useUserStore();
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,7 +57,7 @@ export const NewPasswordForm = () => {
         email: email,
         password: password,
       });
-      userDetails.setUserData(response);
+      
 
       toast.success("Password changed Successfully");
     } catch (error) {
