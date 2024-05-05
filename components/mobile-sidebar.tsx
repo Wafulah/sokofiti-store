@@ -7,11 +7,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { FaUser } from "react-icons/fa";
 import { Sidebar } from "@/components/sidebar";
-
+import useUserStore from "@/lib/store";
 
 export const MobileSidebar = () => {
   const [isMounted, setIsMounted] = useState(false);
 
+  const userDetails = useUserStore((state) => state.items);
 
   useEffect(() => {
     setIsMounted(true);
@@ -27,7 +28,7 @@ export const MobileSidebar = () => {
 
   return (
     <>
-      {true ? (
+      {userDetails[0]?.id ? (
         <Sheet>
           <SheetTrigger>
             <div className="lg:w-8 w-[40px] mt-3 lg:mt-0 lg:ml-0 ml-4 h-[40px] lg:h-full relative rounded-full border-white border-2">
