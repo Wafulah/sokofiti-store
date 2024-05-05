@@ -1,7 +1,7 @@
 import { FaStopwatch, FaCircleCheck } from "react-icons/fa6";
 
-import CartItem from "@/app/(routes)/orders/components/cart-item";
-import { Order } from "@/types";
+import CartItem from "@/components/cart-item";
+import { Order, ProductCart } from "@/types";
 import { Separator } from "@/components/ui/separator";
 import Button from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -150,7 +150,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
               ) : (
                 <ul>
                   {order.orderItems.map((item) => (
-                    <CartItem key={item.id} data={item} />
+                    <CartItem key={item.id} data={item as ProductCart} />
                   ))}
                 </ul>
               )}
