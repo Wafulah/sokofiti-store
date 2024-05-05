@@ -48,7 +48,7 @@ const LoadMore: React.FC<LoadMoreProps> = ({ name, colorId, sizeId }) => {
         <div ref={ref}>
           <Image
             src="./spinner.svg"
-            alt="spinner"
+            alt="Loading..."
             width={56}
             height={56}
             className="object-contain"

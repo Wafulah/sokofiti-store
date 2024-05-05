@@ -78,13 +78,13 @@ const Offer = () => {
     >
        {links.map((link, index) => (
         <Link key={index} href={link.link}>
-          <div className="keen-slider__slide  mx-2 h-52 
+          <div className="keen-slider__slide   h-52 
           lg:h-64 lg:w-[20vw] w-3/4 relative rounded-md aspect-square inset-0">
             <NextImage
               src={link.image}
               fill
               alt={link.name}
-              className="object-cover object-center"
+              className="object-contain object-center"
             />
           </div>
         </Link>
