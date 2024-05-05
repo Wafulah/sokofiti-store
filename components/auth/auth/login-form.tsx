@@ -6,7 +6,7 @@ import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-
+import useUserStore from "@/lib/store";
 
 import { toast } from "react-hot-toast";
 
@@ -51,7 +51,7 @@ export const LoginForm = () => {
       password: "",
     },
   });
-  
+  const userDetails = useUserStore();
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
@@ -66,7 +66,7 @@ export const LoginForm = () => {
       const login = await Login({ email: email, password: password });
 
       if (login.id) {
-        
+        userDetails.setUserData(login);
         setSuccess("login Successful");
         window.location.href = `/cart`;
       } else {
