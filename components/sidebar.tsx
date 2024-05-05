@@ -6,7 +6,7 @@ import * as z from "zod";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
+import useUserStore from "@/lib/store";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -42,19 +42,18 @@ export const Sidebar = () => {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
+ 
   const handleLogout = () => {
-    // Call the removeAll function to clear user data
-    console.log("rep");
-    // Optionally, navigate to the logout page or perform any other logout-related actions
+    console.log("error sidebar")
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      first_name: '',
-      last_name: '',
-      email: '',
-      phone_number: '',
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone_number: "",
     },
   });
 
@@ -75,7 +74,7 @@ export const Sidebar = () => {
           phone_number,
         }
       );
-      
+     
 
       toast.success("Details Succesfully updated");
 

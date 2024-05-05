@@ -18,7 +18,7 @@ import { CardWrapper } from "@/components/auth/auth/card-wrapper";
 import { Button } from "@/components/auth/ui/button";
 import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
-
+import useUserStore from "@/lib/store";
 import { toast } from "react-hot-toast";
 
 import newPassword from "@/actions/new-password";
@@ -33,7 +33,7 @@ export const ResetForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
-  
+  const userDetails = useUserStore();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,7 +56,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
       email: email,
       password: password,
     });
-    
+    userDetails.setUserData(response);
 
     toast.success("Registration Successful");
   } catch (error) {
