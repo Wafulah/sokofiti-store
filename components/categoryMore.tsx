@@ -24,17 +24,22 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
 
   useEffect(() => {
     if (inView) {
-      alert("load More Search");
+      getCategory({
+        skip: skip,
+        take: take,
+        categoryId: categoryId,
+        colorId: colorId,
+        sizeId: sizeId,
+      }).then((res) => {
+        setData([...data, ...res]);
+        skip += take;
+      });
     }
-  }, [inView]);
+  }, [inView, categoryId, colorId, sizeId, data]);
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {data.map((item, index) => (
-          <ProductCard key={item.id} data={item as ProductCart} index={index} />
-        ))}
-      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
       <section className="flex justify-center items-center w-full">
         <div ref={ref}>
           <Image
