@@ -24,18 +24,9 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
 
   useEffect(() => {
     if (inView) {
-      getCategory({
-        skip: skip,
-        take: take,
-        categoryId: categoryId,
-        colorId: colorId,
-        sizeId: sizeId,
-      }).then((res) => {
-        setData((prevData) => [...prevData, ...res]);
-        skip += take;
-      });
+      alert("load More Search");
     }
-  }, [inView, categoryId, colorId, sizeId]);
+  }, [inView]);
 
   return (
     <>

@@ -1,16 +1,11 @@
-import { useState } from "react";
+
 import {
   FaStopwatch,
-  FaPhone,
-  FaStore,
-  FaLocationPin,
-  FaTruckMoving,
   FaCircleCheck,
 } from "react-icons/fa6";
-import ProductList from "@/components/product-list";
+
 import CartItem from "@/app/(routes)/orders/components/cart-item";
 import { Order } from "@/types";
-import Currency from "@/components/ui/currency";
 import { Separator } from "@/components/ui/separator";
 import Button from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

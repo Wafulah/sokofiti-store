@@ -18,10 +18,7 @@ function LoadMore() {
 
   useEffect(() => {
     if (inView) {
-      getProducts({ skip: skip, take: take }).then((res) => {
-        setData((prevData) => [...prevData, ...res]);
-        skip += take;
-      });
+      alert("load More Search");
     }
   }, [inView]);
 

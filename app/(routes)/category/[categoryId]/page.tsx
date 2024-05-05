@@ -4,7 +4,6 @@ import ProductCard from "@/components/ui/product-card";
 import NoResults from "@/components/ui/no-results";
 import LoadMore from "@/components/categoryMore";
 
-import getProducts from "@/actions/get-products";
 import getCategory from "@/actions/get-category";
 import getSizes from "@/actions/get-sizes";
 import getColors from "@/actions/get-colors";
