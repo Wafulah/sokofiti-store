@@ -76,10 +76,12 @@ const Offer = () => {
       className=" keen-slider h-52 
       lg:h-64 lg:w-[40vw] w-3/4 flex justify-center rounded-md"
     >
-       {links.map((link, index) => (
+      {links.map((link, index) => (
         <Link key={index} href={link.link}>
-          <div className="keen-slider__slide   h-52 
-          lg:h-64 lg:w-[20vw] w-3/4 relative rounded-md aspect-square inset-0">
+          <div
+            className="keen-slider__slide   h-52 
+          lg:h-64 w-full relative rounded-md aspect-square inset-0"
+          >
             <NextImage
               src={link.image}
               fill
@@ -88,7 +90,7 @@ const Offer = () => {
             />
           </div>
         </Link>
-      ))} 
+      ))}
     </div>
   );
 };
