@@ -25,7 +25,7 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
-console.log(userDetails[0].id);
+  console.log(userDetails[0]?.id);
   return (
     <>
       {userDetails[0]?.id ? (
