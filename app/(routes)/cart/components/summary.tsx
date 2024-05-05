@@ -47,13 +47,13 @@ const Summary = () => {
       {
         productIds: items.map((item) => item.id),
         productQuantity: items.map((item) => item.items),
-        buyerId: userDetails[0].id,
+        buyerId: "hejd",
       }
     );
 
     window.location = response.data.url;
   };
-  const userIds: string = userDetails[0].id as string;
+  const userIds: string = "hejd";
   const onMpesa = async () => {
     setIsModalOpen(false);
     setDetails(true);
@@ -84,13 +84,7 @@ const Summary = () => {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button
-        onClick={onCheckout}
-        disabled={items.length === 0}
-        className="w-full mt-6"
-      >
-        Checkout
-      </Button>
+     
     </div>
   );
 };
