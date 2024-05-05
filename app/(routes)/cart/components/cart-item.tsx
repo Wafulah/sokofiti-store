@@ -22,7 +22,44 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
     cart.removeItem(data.id);
   };
 
+  const increaseQuantity = () => {
+    // Calculate price per item
+    const pricePerItem = price / quantity;
+    // Increase quantity
+    setQuantity(quantity + 1);
+    updatePrice(quantity + 1);
+  };
 
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      // Calculate price per item
+      pricePerItem = price / quantity;
+      // Decrease quantity
+      setQuantity(quantity - 1);
+      updatePrice(quantity - 1);
+    }
+  };
+
+  const handleQuantityChange = (newQuantity: number) => {
+    if (newQuantity > 0) {
+      // Calculate price per item
+      pricePerItem = price / quantity;
+      // Update quantity
+      setQuantity(newQuantity);
+      updatePrice(newQuantity);
+    }
+  };
+
+  function updatePrice(quantity: number) {
+    const newPrice = pricePerItem * quantity;
+    setPrice(newPrice);
+
+    cart.updateItem({
+      ...data,
+      items: quantity.toString(),
+      price: newPrice.toString(),
+    });
+  }
 
   return (
     <li className="flex py-6 border-b">
@@ -51,7 +88,29 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
           </div>
           <Currency value={price} />
         </div>
-        
+        <div className="mt-1 flex flex-end text-sm">
+          <button
+            type="button"
+            onClick={decreaseQuantity}
+            className="text-gray-500 border-b border-gray-200"
+          >
+            <FiMinus />
+          </button>
+          <input
+            type="number"
+            className="text-gray-500 border-b border-gray-200 w-16 text-center"
+            value={quantity}
+            min={1}
+            onChange={(e) => handleQuantityChange(parseInt(e.target.value))}
+          />
+          <button
+            type="button"
+            onClick={increaseQuantity}
+            className="text-gray-500 border-b border-gray-200"
+          >
+            <FiPlus />
+          </button>
+        </div>
       </div>
     </li>
   );
