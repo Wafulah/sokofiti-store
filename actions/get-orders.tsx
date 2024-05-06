@@ -7,17 +7,27 @@ interface Query {
 }
 const getOrders = async (query: Query = {}): Promise<Order[]> => {
   try {
-    const queryString = qs.stringify({ buyerId: query.id });
-    const res = await fetch(`${URL}?${queryString}`);
+    const url = qs.stringifyUrl({
+      url: URL,
+      query: {
+        buyerId: query.id,
+      },
+    });
+
+    const res = await fetch(url);
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch orders: ${res.status} ${res.statusText}`);
+      throw new Error(
+        `Failed to fetch orders: ${res.status} ${res.statusText}`
+      );
     }
 
-    return res.json();
+    const data = await res.json();
+
+    return data;
   } catch (error) {
     console.error("[GET_ORDERS]", error);
-    throw error; 
+    throw error;
   }
 };
 
