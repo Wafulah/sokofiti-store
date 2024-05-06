@@ -28,14 +28,11 @@ export const MobileSidebar = () => {
   let loaded = false;
   if (userDetails[0]?.id !== undefined) {
     loaded = true;
-    console.log(loaded);
-  } else {
-    console.log(loaded);
   }
-  console.log(userDetails[0]?.id);
+
   return (
     <>
-      {userDetails[0]?.id ? (
+      {loaded ? (
         <Sheet>
           <SheetTrigger>
             <div className="lg:w-8 w-[40px] mt-3 lg:mt-0 lg:ml-0 ml-4 h-[40px] lg:h-full relative rounded-full border-white border-2">
