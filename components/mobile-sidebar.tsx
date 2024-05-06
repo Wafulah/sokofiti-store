@@ -11,7 +11,7 @@ import useUserStore from "@/lib/store";
 
 export const MobileSidebar = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [userId, setUserId] = useState<string | undefined>(undefined);
+  const [userId, setUserId] = useState<boolean>(false); 
 
   const userDetails = useUserStore((state) => state.items);
 
@@ -19,9 +19,10 @@ export const MobileSidebar = () => {
     setIsMounted(true);
   }, []);
   useEffect(() => {
-    if (isMounted && userDetails[0]?.id) {
-      // Check if userDetails[0]?.id exists
-      setUserId(userDetails[0]?.id); // Set the userId
+    if (isMounted && userDetails[0]?.id) { // Check if userDetails[0]?.id exists
+      setUserId(true); // Set userId to true if userDetails[0]?.id exists
+    } else {
+      setUserId(false); // Set userId to false otherwise
     }
   }, [isMounted, userDetails]);
 
@@ -32,8 +33,6 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
-
-  console.log(userId);
 
   return (
     <>
