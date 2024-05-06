@@ -6,7 +6,7 @@ import Container from "@/components/ui/container";
 import useCart from "@/hooks/use-cart";
 
 import Summary from "./components/summary";
-import CartItem from "@/components/cart-item";
+import CartItem from "./components/cart-item";
 
 export const revalidate = 0;
 
