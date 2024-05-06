@@ -45,10 +45,10 @@ export const MobileSidebar = () => {
           </SheetContent>
         </Sheet>
       ) : (
-        <Button onClick={onLogin} className="bg-transparent w-fit h-fit">
+        <Button onClick={onLogin} className="lg:mt-0 bg-transparent w-fit h-fit">
           <Avatar>
             <AvatarImage src={""} />
-            <AvatarFallback className="0">
+            <AvatarFallback className="lg:mt-0">
               <FaUser className="text-{rgb(255,55,0)}" />
             </AvatarFallback>
           </Avatar>
