@@ -11,6 +11,7 @@ import useUserStore from "@/lib/store";
 
 export const MobileSidebar = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const [userId, setUserId] = useState(undefined);
 
   const userDetails = useUserStore((state) => state.items);
 
@@ -25,13 +26,13 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
-  let loaded = undefined;
-  
-  console.log(loaded);
+  setUserId(userDetails[0].id);
+
+  console.log(userId);
 
   return (
     <>
-      {loaded ? (
+      {userId ? (
         <Sheet>
           <SheetTrigger>
             <div className="lg:w-8 w-[40px] mt-3 lg:mt-0 lg:ml-0 ml-4 h-[40px] lg:h-full relative rounded-full border-white border-2">
