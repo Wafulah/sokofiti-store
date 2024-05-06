@@ -11,13 +11,19 @@ import useUserStore from "@/lib/store";
 
 export const MobileSidebar = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [userId, setUserId] = useState(undefined);
+  const [userId, setUserId] = useState<string | undefined>(undefined);
 
   const userDetails = useUserStore((state) => state.items);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+  useEffect(() => {
+    if (isMounted && userDetails[0]?.id) {
+      // Check if userDetails[0]?.id exists
+      setUserId(userDetails[0]?.id); // Set the userId
+    }
+  }, [isMounted, userDetails]);
 
   if (!isMounted) {
     return null;
