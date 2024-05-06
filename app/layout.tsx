@@ -5,7 +5,7 @@ import ToastProvider from "@/providers/toast-provider";
 import Navbar from "@/components/navbar";
 import BottomNav from "@/components/bottom-nav";
 import Footer from "@/components/footer";
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 
 const font = Urbanist({ subsets: ["latin"] });
@@ -27,6 +27,7 @@ export default function RootLayout({
         <ModalProvider />
         <Navbar />
         {children}
+        <SpeedInsights />
         <Footer />
         <BottomNav />
       </body>
