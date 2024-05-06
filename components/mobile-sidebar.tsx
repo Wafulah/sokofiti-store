@@ -32,7 +32,6 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
-  setUserId(userDetails[0].id);
 
   console.log(userId);
 
