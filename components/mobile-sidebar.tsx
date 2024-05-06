@@ -25,7 +25,7 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
-  let loaded;
+  let loaded = false;
   if (userDetails[0]?.id === undefined) {
     loaded = false;
   } else {
