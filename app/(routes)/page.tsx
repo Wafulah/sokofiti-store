@@ -24,8 +24,8 @@ const HomePage = async () => {
           data={billboard}
         /> */}
         <CategoryList title="Explore Categories" data={categories} />
-        <div className="mx-auto w-3/4 lg:w-2/4 lg:h-64 h-52">
-        <Offer /></div>
+        
+        <Offer />
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
           <ProductList title="Featured Products" items={products as ProductCart[]} />
           <LoadMore />
