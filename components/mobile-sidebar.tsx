@@ -25,10 +25,13 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
-  let loaded = false;
-  if (userDetails[0]?.id !== undefined) {
+  let loaded;
+  if (userDetails[0]?.id === undefined) {
+    loaded = false;
+  } else {
     loaded = true;
   }
+  console.log(loaded);
 
   return (
     <>
