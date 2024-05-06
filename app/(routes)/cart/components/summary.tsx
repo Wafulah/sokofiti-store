@@ -21,7 +21,7 @@ const Summary = () => {
   const userDetails = useUserStore((state) => state.items);
 
   const onCheckout = () => {
-    userDetails[0].id
+    userDetails[0]?.id
       ? setIsModalOpen(true)
       : (window.location.href = `/login`);
   };
@@ -51,13 +51,13 @@ const Summary = () => {
       {
         productIds: items.map((item) => item.id),
         productQuantity: items.map((item) => item.items),
-        buyerId: userDetails[0].id,
+        buyerId: userDetails[0]?.id,
       }
     );
 
     window.location = response.data.url;
   };
-  const userIds: string = userDetails[0].id as string;
+  const userIds: string = userDetails[0]?.id as string;
   const onMpesa = async () => {
     setIsModalOpen(false);
     setDetails(true);
