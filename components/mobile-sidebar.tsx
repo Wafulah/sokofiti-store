@@ -25,6 +25,13 @@ export const MobileSidebar = () => {
   const onLogin = () => {
     window.location.href = `/login`;
   };
+  let loaded = false;
+  if (userDetails[0]?.id !== undefined) {
+    loaded = true;
+    console.log(loaded);
+  } else {
+    console.log(loaded);
+  }
   console.log(userDetails[0]?.id);
   return (
     <>
@@ -45,7 +52,10 @@ export const MobileSidebar = () => {
           </SheetContent>
         </Sheet>
       ) : (
-        <Button onClick={onLogin} className="lg:mt-0 bg-transparent w-fit h-fit">
+        <Button
+          onClick={onLogin}
+          className="lg:mt-0 bg-transparent w-fit h-fit"
+        >
           <Avatar>
             <AvatarImage src={""} />
             <AvatarFallback className="lg:mt-0">
