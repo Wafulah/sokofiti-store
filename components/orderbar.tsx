@@ -21,7 +21,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     return total + Number(item.price);
   }, 0);
   const totalItems = order.orderItems.length;
-  console.log("webtoken->", order.store.name);
+ 
   return (
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
@@ -115,7 +115,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
 
           <div className="h-3/4 w-11/12 mx-auto bg-white rounded-lg flex justify-center ">
             <ScrollArea className="lg:col-span-7 w-11/12 h-full whitespace-nowrap mx-auto">
-              {order.orderItems.length === 0 ? (
+              {/* {order.orderItems.length === 0 ? (
                 <p className="text-neutral-500">Error retrieving items.</p>
               ) : (
                 <ul>
@@ -123,7 +123,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
                     <CartItem key={item.id} data={item as ProductCart} />
                   ))}
                 </ul>
-              )}
+              )} */}
 
               <ScrollBar orientation="vertical" />
             </ScrollArea>
