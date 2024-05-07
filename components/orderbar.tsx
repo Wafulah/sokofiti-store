@@ -21,7 +21,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     return total + Number(item.price);
   }, 0);
   const totalItems = order.orderItems.length;
-  console.log(order);
+  console.log(order.store[0].name);
   return (
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
