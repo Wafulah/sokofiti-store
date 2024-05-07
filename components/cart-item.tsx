@@ -13,10 +13,10 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = async ({ id, quantity }) => {
-  const dataItems: OrderItems = await getOrder({ id: id });
+  const dataItems: OrderItems = getOrder({ id: id });
   const data = dataItems.product;
-  const price = (parseInt(data.price) * quantity);
-  
+  const price = parseInt(data.price) * quantity;
+  console.log(dataItems, data);
   return (
     <li className="flex py-6 border-b">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
