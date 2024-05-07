@@ -1,7 +1,7 @@
 import { FaStopwatch, FaCircleCheck } from "react-icons/fa6";
 
 import CartItem from "@/components/cart-item";
-import { Order, ProductCart } from "@/types";
+import { Order, ProductCart, OrderItem } from "@/types";
 import { Separator } from "@/components/ui/separator";
 import Button from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -21,8 +21,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     return total + Number(item.price);
   }, 0);
   const totalItems = order.orderItems.length;
- console.log(order);
- console.log(order.orderItems);
+
   return (
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
@@ -116,14 +115,16 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
 
           <div className="h-3/4 w-11/12 mx-auto bg-white rounded-lg flex justify-center ">
             <ScrollArea className="lg:col-span-7 w-11/12 h-full whitespace-nowrap mx-auto">
-              
-                <ul>
-                  {order.orderItems.map((item) => (
-                    <CartItem key={item.id} data={item as ProductCart} />
-                   
-                  ))}
-                </ul>
-             
+              <ul>
+                {order.orderItems.map((item) => (
+                  <CartItem
+                    key={item.id}
+                    id={item.id as string}
+                    quantity={item.quantity as number}
+                    price={item.price as number}
+                  />
+                ))}
+              </ul>
 
               <ScrollBar orientation="vertical" />
             </ScrollArea>

@@ -54,7 +54,22 @@ export interface Order {
   county: County[];
   address?: string;
   createdAt: string;
-  orderItems: Product[];
+  orderItems: OrderItems[];
+}
+export interface OrderItems{
+  id: string;
+  orderId: string;
+  productId: string;
+  quantity: number;
+  price: number;
+  product: Product;
+}
+
+export interface OrderItem {
+  id: string;
+  orderId: string;
+  productId: string;
+  quantity: number;
 }
 
 export interface User {

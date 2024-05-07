@@ -2,16 +2,21 @@
 import Image from "next/image";
 
 import IconButton from "@/components/ui/icon-button";
+import getOrder from "@/actions/get-order";
 import Currency from "@/components/ui/currency";
 
-import { ProductCart } from "@/types";
+import { OrderItems, OrderItem } from "@/types";
 
 interface CartItemProps {
-  data: ProductCart;
+  id: string;
+  quantity: number;
+  price: number;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ data }) => {
-console.log(data);
+const CartItem: React.FC<CartItemProps> = async ({ id,quantity,price }) => {
+  const dataItems: OrderItems = await getOrder({ id: id });
+  const data = dataItems.product;
+  console.log(data);
   return (
     <li className="flex py-6 border-b">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
@@ -23,9 +28,7 @@ console.log(data);
         />
       </div>
       <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-        <div className="absolute z-10 right-0 top-0">
-         
-        </div>
+        <div className="absolute z-10 right-0 top-0"></div>
         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
           <div className="flex justify-between">
             <p className=" text-lg font-semibold text-black">{data?.name}</p>
@@ -38,6 +41,12 @@ console.log(data);
             </p>
           </div>
           <Currency value={data?.price} />
+        </div>
+        <div className="mt-1 flex flex-end text-sm">
+        <p className="text-bold text-lg text-[rgb(255,55,0)]">{quantity} <span className="text-black opacity-75">Items</span></p>
+        </div> 
+        <div className="mt-1 flex flex-end text-sm">
+        <p className="text-bold text-lg text-[rgb(255,55,0)]">Total Price<span className="text-black opacity-75">{price}</span></p>
         </div>
       </div>
     </li>
