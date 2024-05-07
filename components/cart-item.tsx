@@ -1,29 +1,44 @@
+"use client";
 // CartItem.tsx
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import IconButton from "@/components/ui/icon-button";
 import getOrder from "@/actions/get-order";
 import Currency from "@/components/ui/currency";
 
-import { OrderItems, OrderItem } from "@/types";
+import { OrderItems, Product, OrderItem } from "@/types";
 
 interface CartItemProps {
   id: string;
   quantity: number;
 }
 
-const CartItem: React.FC<CartItemProps> = async ({ id, quantity }) => {
-  const dataItems: OrderItems = await getOrder({ id: id });
-  const data = dataItems.product;
-  const price = parseInt(data.price) * quantity;
-  console.log(dataItems, data);
+const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
+  const [data, setData] = useState<Product>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const dataItems: OrderItems = await getOrder({ id: id });
+        setData(dataItems.product);
+      } catch (error) {
+        console.error("Error fetching order item:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+  const itemPrice = data?.price as string;
+  const price = parseInt(itemPrice) * quantity;
+  console.log(data);
   return (
     <li className="flex py-6 border-b">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
         <Image
           fill
-          src={data?.images[0]?.url}
-          alt={data?.name}
+          src={data?.images[0]?.url || "/one.jpg"}
+          alt={data?.name || ""}
           className="object-cover object-center"
         />
       </div>
