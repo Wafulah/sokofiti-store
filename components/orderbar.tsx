@@ -21,7 +21,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     return total + Number(item.price);
   }, 0);
   const totalItems = order.orderItems.length;
-  console.log("webtoken",order.store[0].name);
+  console.log("webtoken->", order.store.name);
   return (
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
@@ -106,7 +106,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
               <p className="text-white ">{totalItems} Items</p>
             </Badge>
             <Badge variant="outline" className="h-fit bg-[rgb(255,55,0)] ">
-              <p className="text-white text-xs">{order.store[0].name}</p>
+              <p className="text-white text-xs">{order.store.name}</p>
             </Badge>
             <Badge variant="outline" className="h-fit bg-[rgb(255,55,0)] ">
               <p className="text-white ">{order.address}</p>

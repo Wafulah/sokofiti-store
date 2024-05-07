@@ -48,7 +48,7 @@ export interface Billboard {
 
 export interface Order {
   id: string;
-  store: Store[];
+  store: Store;
   isPaid: boolean;
   phone: string;
   county: County[];
