@@ -52,8 +52,9 @@ export interface Order {
   isPaid: boolean;
   phone: string;
   county: County[];
-  createdAt: string; 
-  orderItems:Product[];
+  address?: string;
+  createdAt: string;
+  orderItems: Product[];
 }
 
 export interface User {
