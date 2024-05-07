@@ -17,7 +17,7 @@ function formatDate(isoDate: string) {
 }
 
 const OrderBar: React.FC<OrderBar> = ({ order }) => {
-  console.log("webtoken->", order);
+  
   const totalPrice = order.orderItems.reduce((total, item) => {
     return total + Number(item.price);
   }, 0);
