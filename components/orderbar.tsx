@@ -118,8 +118,8 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
               
                 <ul>
                   {order.orderItems.map((item) => (
-                    // <CartItem key={item.id} data={item as ProductCart} />
-                    <p key={item.id}>{item.id}</p>
+                    <CartItem key={item.id} data={item as ProductCart} />
+                   
                   ))}
                 </ul>
              
