@@ -23,7 +23,7 @@ const getOrders = async (query: Query = {}): Promise<Order[]> => {
     }
 
     const data = await res.json();
-    console.error(data);
+    
     return data;
   } catch (error) {
     console.error("[GET_ORDERS]", error);
