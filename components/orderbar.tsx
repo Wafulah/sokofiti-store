@@ -146,7 +146,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
           <div className="h-3/4 w-11/12 mx-auto bg-white rounded-lg flex justify-center ">
             <ScrollArea className="lg:col-span-7 w-11/12 h-full whitespace-nowrap mx-auto">
               {order.orderItems.length === 0 ? (
-                <p className="text-neutral-500">No items added to cart.</p>
+                <p className="text-neutral-500">Error retrieving items.</p>
               ) : (
                 <ul>
                   {order.orderItems.map((item) => (
