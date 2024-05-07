@@ -136,7 +136,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
               <p className="text-white ">{totalItems} Items</p>
             </Badge>
             <Badge variant="outline" className="h-fit bg-[rgb(255,55,0)] ">
-              <p className="text-white text-xs">{order.store.name}</p>
+              <p className="text-white text-xs">{order.store[0].name}</p>
             </Badge>
             <Badge variant="outline" className="h-fit bg-[rgb(255,55,0)] ">
               <p className="text-white ">{order.address}</p>
