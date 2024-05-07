@@ -9,7 +9,7 @@ interface Query {
 const getOrder = async (query: Query = {}): Promise<OrderItems> => {
   try {
     const url = qs.stringifyUrl({
-      url: `${URL}/buyer_orders/${query.id}`,
+      url: `${URL}/${query.id}`,
       query: {
         id: query.id,
       },
