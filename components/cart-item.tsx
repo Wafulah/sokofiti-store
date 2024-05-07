@@ -10,12 +10,12 @@ import { OrderItems, OrderItem } from "@/types";
 interface CartItemProps {
   id: string;
   quantity: number;
-  price: number;
 }
 
-const CartItem: React.FC<CartItemProps> = async ({ id,quantity,price }) => {
+const CartItem: React.FC<CartItemProps> = async ({ id, quantity }) => {
   const dataItems: OrderItems = await getOrder({ id: id });
   const data = dataItems.product;
+  const price = (parseInt(data.price) * quantity);
   console.log(data);
   return (
     <li className="flex py-6 border-b">
@@ -43,10 +43,14 @@ const CartItem: React.FC<CartItemProps> = async ({ id,quantity,price }) => {
           <Currency value={data?.price} />
         </div>
         <div className="mt-1 flex flex-end text-sm">
-        <p className="text-bold text-lg text-[rgb(255,55,0)]">{quantity} <span className="text-black opacity-75">Items</span></p>
-        </div> 
+          <p className="text-bold text-lg text-[rgb(255,55,0)]">
+            {quantity} <span className="text-black opacity-75">Items</span>
+          </p>
+        </div>
         <div className="mt-1 flex flex-end text-sm">
-        <p className="text-bold text-lg text-[rgb(255,55,0)]">Total Price<span className="text-black opacity-75">{price}</span></p>
+          <p className="text-bold text-lg text-[rgb(255,55,0)]">
+            Total Price<span className="text-black opacity-75">{price}</span>
+          </p>
         </div>
       </div>
     </li>

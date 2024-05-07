@@ -17,9 +17,7 @@ function formatDate(isoDate: string) {
 }
 
 const OrderBar: React.FC<OrderBar> = ({ order }) => {
-  const totalPrice = order.orderItems.reduce((total, item) => {
-    return total + Number(item.price);
-  }, 0);
+  
   const totalItems = order.orderItems.length;
   console.log("webtoken->", order);
   return (
@@ -121,7 +119,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
                     key={item.id}
                     id={item.id as string}
                     quantity={item.quantity as number}
-                    price={item.price as number}
+                    
                   />
                 ))}
               </ul>
