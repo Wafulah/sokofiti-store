@@ -21,6 +21,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     return total + Number(item.price);
   }, 0);
   const totalItems = order.orderItems.length;
+  console.log(order);
   return (
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
@@ -31,38 +32,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
               INVOICE : {order.id}
             </h2>
           </div>
-          {/* <div className="w-11/12 lg:w-4/6 mx-auto space-y-3 flex flex-col justify-center">
-            <h2 className="text-2xl font-black text-white flex space-x-24">
-              <FaStore className="text-white text-2xl" />
-              <span className="text-[rgb(255,55,0)] ">
-                {order.store[0].name}
-              </span>
-            </h2>
-            <h2 className="text-2xl font-black text-white flex space-x-24">
-              <FaPhone className="text-white text-2xl" />
-              <span className="text-[rgb(255,55,0)] ">{order.phone}</span>
-            </h2>
-            <p className="text-2xl font-black text-white flex space-x-24">
-              <FaStopwatch className="text-white text-2xl" />{" "}
-              <span className="text-[rgb(255,55,0)] ">
-                {formatDate(order.createdAt)}
-              </span>
-            </p>
-            <h2 className="text-2xl font-black text-white flex space-x-24">
-              <FaLocationPin className="text-white text-2xl" />
-              <span className="text-[rgb(255,55,0)] ">
-                {order.county[0].name}
-              </span>
-            </h2>
-            <h2 className="text-2xl font-black text-white flex space-x-24">
-              <FaTruckMoving className="text-white text-2xl" />
-              {order.isPaid ? (
-                <p className="text-green-500 text-bold">Delivered</p>
-              ) : (
-                <p className="text-bold text-red-500">Not Delivered</p>
-              )}
-            </h2>
-          </div> */}
+
           <div className="h-3/6 w-11/12 flex mx-auto">
             <div className="h-full w-11/12 flex flex-col space-y-1 mx-auto">
               <div className="w-full flex h-2/5 ">
