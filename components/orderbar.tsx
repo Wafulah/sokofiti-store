@@ -115,15 +115,14 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
 
           <div className="h-3/4 w-11/12 mx-auto bg-white rounded-lg flex justify-center ">
             <ScrollArea className="lg:col-span-7 w-11/12 h-full whitespace-nowrap mx-auto">
-              {/* {order.orderItems.length === 0 ? (
-                <p className="text-neutral-500">Error retrieving items.</p>
-              ) : (
+              
                 <ul>
                   {order.orderItems.map((item) => (
-                    <CartItem key={item.id} data={item as ProductCart} />
+                    // <CartItem key={item.id} data={item as ProductCart} />
+                    <p key={item.id}>{item.id}</p>
                   ))}
                 </ul>
-              )} */}
+             
 
               <ScrollBar orientation="vertical" />
             </ScrollArea>
