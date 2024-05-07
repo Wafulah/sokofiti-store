@@ -13,7 +13,7 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = async ({ id, quantity }) => {
-  const dataItems: OrderItems = getOrder({ id: id });
+  const dataItems: OrderItems = await getOrder({ id: id });
   const data = dataItems.product;
   const price = parseInt(data.price) * quantity;
   console.log(dataItems, data);
