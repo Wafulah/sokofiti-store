@@ -1,6 +1,6 @@
 import { Product } from "@/types";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL = `${process.env.NEXT_PUBLIC_API_ALL_URL}/products`;
 
 const getProduct = async (id: string): Promise<Product> => {
   try {
