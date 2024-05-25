@@ -15,7 +15,7 @@ interface ProductPageProps {
 }
 
 const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
-  const product = (await getProduct(params.productId)) as ProductCart;
+  const product = (await getProduct({id:params.productId})) as ProductCart;
   const suggestedProducts = await getProducts({
     categoryId: product?.category?.id,
   });
