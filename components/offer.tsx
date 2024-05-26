@@ -52,13 +52,13 @@ const Offer = () => {
           delay: 2000,
         }),
       ]}
-      className="w-screen max-w-xs h-full bg-green-500 mx-auto"
+      className="w-screen max-w-xs h-full mx-auto"
     >
-      <CarouselContent className="w-screen h-full mx-auto bg-red-500">
+      <CarouselContent className="w-full h-full mx-auto ">
         {links.map((link, index) => (
           <CarouselItem key={index} className="w-full h-full mx-auto">
             <Link href={link.link} className="p-1 w-full h-full mx-auto">
-              <Card className="mx-auto w-4/5 lg:w-2/4 lg:h-64 h-52">
+              <Card className="mx-auto w-full lg:w-2/4 lg:h-64 h-52">
                 <CardContent className="flex aspect-square items-center justify-center p-6 w-full h-full relative">
                   <Image
                     src={link.image}
