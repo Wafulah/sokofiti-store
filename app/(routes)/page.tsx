@@ -16,7 +16,7 @@ const HomePage = async () => {
   const products = await getProducts({ skip: 0, take: 4 });
 
   const categories = await getCategories();
- 
+
   return (
     <Container>
       <div className="space-y-10 pb-10">
@@ -24,10 +24,14 @@ const HomePage = async () => {
           data={billboard}
         /> */}
         <CategoryList title="Explore Categories" data={categories} />
-        <div className="mx-auto w-4/5 lg:w-2/4 lg:h-64 h-52">
-        <Offer /></div>
+        <div className="mx-auto w-full lg:h-64 h-52">
+          <Offer />
+        </div>
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-          <ProductList title="Featured Products" items={products as ProductCart[]} />
+          <ProductList
+            title="Featured Products"
+            items={products as ProductCart[]}
+          />
           <LoadMore />
         </div>
       </div>

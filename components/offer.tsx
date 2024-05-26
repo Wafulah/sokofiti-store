@@ -54,17 +54,17 @@ const Offer = () => {
       ]}
       className="w-full max-w-xs h-full"
     >
-      <CarouselContent>
+      <CarouselContent className="w-full h-full mx-auto">
         {links.map((link, index) => (
           <CarouselItem key={index}>
-            <Link href={link.link} className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
+            <Link href={link.link} className="p-1 w-full h-full mx-auto">
+              <Card className="mx-auto w-4/5 lg:w-2/4 lg:h-64 h-52">
+                <CardContent className="flex aspect-square items-center justify-center p-6 w-full h-full relative">
                   <Image
                     src={link.image}
-                    alt=""
+                    alt={link.name}
                     fill
-                    className="aspect-square object-cover rounded-md"
+                    className="aspect-square object-cover rounded-xl"
                   />
                 </CardContent>
               </Card>
