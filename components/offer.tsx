@@ -1,47 +1,17 @@
-"use client";
-import React from "react";
-import { useKeenSlider } from "keen-slider/react";
+import * as React from "react";
+
+import Image from "next/image";
 import Link from "next/link";
-import NextImage from "next/image";
-import "keen-slider/keen-slider.min.css";
+import { Card, CardContent } from "@/components/auth/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Offer = () => {
-  const [sliderRef] = useKeenSlider<HTMLDivElement>(
-    {
-      loop: true,
-    },
-    [
-      (slider) => {
-        let timeout: ReturnType<typeof setTimeout>;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 2000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
-  );
-
   const links = [
     {
       id: 1,
@@ -70,27 +40,28 @@ const Offer = () => {
   ];
 
   return (
-    <div
-      ref={sliderRef}
-      className=" keen-slider h-52 
-      lg:h-64 lg:w-[40vw] w-3/4 flex items-center justify-center rounded-md"
-    >
-      {links.map((link) => (
-        <Link
-          key={link.id}
-          href={link.link}
-          className="keen-slider__slide  h-52 
-          lg:h-64 lg:w-[40vw] w-[75vw] relative rounded-md "
-        >
-          <NextImage
-            src={link.image}
-            fill
-            alt={link.name}
-            className="object-fi object-center"
-          />
-        </Link>
-      ))}
-    </div>
+    <Carousel className="w-full max-w-xs">
+      <CarouselContent>
+        {links.map((link, index) => (
+          <CarouselItem key={index}>
+            <Link href={link.link} className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <Image
+                    src={link.image}
+                    alt=""
+                    fill
+                    className="aspect-square object-cover rounded-md"
+                  />
+                </CardContent>
+              </Card>
+            </Link>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 };
 
