@@ -52,7 +52,7 @@ const Offer = () => {
           delay: 2000,
         }),
       ]}
-      className="w-full max-w-xs h-full"
+      className="w-full max-w-xs h-full bg-green-500"
     >
       <CarouselContent className="w-full h-full mx-auto bg-red-500">
         {links.map((link, index) => (
