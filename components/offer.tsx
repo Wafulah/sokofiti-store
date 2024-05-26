@@ -40,7 +40,7 @@ const Offer = () => {
   ];
 
   return (
-    <Carousel className="w-full max-w-xs">
+    <Carousel className="w-full max-w-xs h-full">
       <CarouselContent>
         {links.map((link, index) => (
           <CarouselItem key={index}>
