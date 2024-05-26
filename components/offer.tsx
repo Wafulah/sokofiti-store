@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/auth/ui/card";
@@ -40,7 +41,18 @@ const Offer = () => {
   ];
 
   return (
-    <Carousel className="w-full max-w-xs h-full">
+    <Carousel
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+      className="w-full max-w-xs h-full"
+    >
       <CarouselContent>
         {links.map((link, index) => (
           <CarouselItem key={index}>
