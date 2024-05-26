@@ -24,7 +24,7 @@ const HomePage = async () => {
           data={billboard}
         /> */}
         <CategoryList title="Explore Categories" data={categories} />
-        <div className="mx-auto w-screen lg:h-64 h-52 bg-red-500">
+        <div className="mx-auto w-[90vw] lg:h-64 h-52 bg-red-500">
           <Offer />
         </div>
         <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
