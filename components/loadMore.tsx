@@ -27,7 +27,7 @@ function LoadMore() {
 
   return (
     <>
-      <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col gap-y-8 ">
         <ProductList title="" items={data as ProductCart[]} />
       </div>
       <section className="flex justify-center items-center w-full">
