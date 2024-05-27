@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import getCategories from "@/actions/get-categories";
@@ -10,6 +11,49 @@ import { ProductCart } from "@/types";
 
 import LoadMore from "@/components/loadMore";
 
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Glamarace",
+    default: "Glamarace",
+  },
+  description:
+    "Connecting Fashion designers and Customers through their Mobile phones.",
+  keywords: [
+    "Glamarace",
+    "Wedding",
+    "Suits",
+    "Watches",
+    "Vintage",
+    "fashion",
+    "clothing",
+    "apparel",
+    "shoes",
+    "accessories",
+    "trends",
+    "online store",
+    "Kenya",
+    "Africa",
+    "Nike",
+    "Air Force",
+    "Denim",
+    "Rolex",
+    "Adidas",
+    "Puma",
+    "Levi's",
+    "Gucci",
+    "Prada",
+    "Louis Vuitton",
+    "Zara",
+    "H&M",
+    "Kitenge",
+    "Dress",
+    "Skirt",
+    "Jordans",
+    "Glamour",
+    "Style",
+  ],
+  metadataBase: new URL("https://sokofiti-store.vercel.app"),
+};
 export const revalidate = 0;
 
 const HomePage = async () => {
