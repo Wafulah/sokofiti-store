@@ -12,13 +12,7 @@ interface Query {
 }
 const getCategory = async (query: Query = {}): Promise<Product[]> => {
   try {
-    console.log(
-      query.colorId,
-      query.sizeId,
-      query.skip,
-      query.take,
-      query.categoryId
-    );
+    
     const url = qs.stringifyUrl({
       url: `${URL}/${query.categoryId}`,
       query: {
@@ -26,7 +20,7 @@ const getCategory = async (query: Query = {}): Promise<Product[]> => {
         sizeId: query.sizeId,
         skipItems: query.skip,
         takeItems: query.take,
-        categoryId: query.categoryId,
+        category: query.categoryId,
         isFeatured: query.isFeatured,
       },
     });
