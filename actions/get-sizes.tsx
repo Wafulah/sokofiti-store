@@ -1,6 +1,6 @@
 import { Size } from "@/types";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/sizes`;
+const URL = `${process.env.NEXT_PUBLIC_API_ALL_URL}/sizes`;
 
 const getSizes = async (): Promise<Size[]> => {
   try {
@@ -10,7 +10,7 @@ const getSizes = async (): Promise<Size[]> => {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
-    const data: Size[] = await res.json();
+    const data = await res.json();
     return data;
   } catch (error) {
     console.error("[GET_SIZES]", error);

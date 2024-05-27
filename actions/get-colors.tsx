@@ -1,6 +1,6 @@
 import { Color } from "@/types";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/colors`;
+const URL = `${process.env.NEXT_PUBLIC_API_ALL_URL}/colors`;
 
 const getColors = async (): Promise<Color[]> => {
   try {
@@ -10,7 +10,7 @@ const getColors = async (): Promise<Color[]> => {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
 
-    const data: Color[] = await res.json();
+    const data = await res.json();
     return data;
   } catch (error) {
     console.error("[GET_COLORS]", error);
