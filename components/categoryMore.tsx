@@ -17,8 +17,9 @@ interface LoadMoreProps {
   categoryId: string;
   colorId: string;
   sizeId: string;
+  genderId: string;
 }
-const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
+const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId ,genderId}) => {
   const { ref, inView } = useInView();
   const [data, setData] = useState<Product[]>([]);
 
@@ -30,12 +31,13 @@ const LoadMore: React.FC<LoadMoreProps> = ({ categoryId, colorId, sizeId }) => {
         categoryId: categoryId,
         colorId: colorId,
         sizeId: sizeId,
+        genderId: genderId,
       }).then((res) => {
         setData([...data, ...res]);
         skip += take;
       });
     }
-  }, [inView, categoryId, colorId, sizeId,data]);
+  }, [inView, categoryId, colorId, sizeId,genderId,data]);
 
   return (
     <>

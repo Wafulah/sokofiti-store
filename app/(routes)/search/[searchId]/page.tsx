@@ -8,6 +8,7 @@ import getProducts from "@/actions/get-search";
 import getCategory from "@/actions/get-category";
 import getSizes from "@/actions/get-sizes";
 import getColors from "@/actions/get-colors";
+import getGenders from "@/actions/get-genders";
 
 import Filter from "./components/filter";
 import MobileFilters from "./components/mobile-filters";
@@ -23,6 +24,7 @@ interface SearchPageProps {
   searchParams: {
     colorId: string;
     sizeId: string;
+    genderId: string;
   };
 }
 
@@ -34,21 +36,24 @@ const SearchPage: React.FC<SearchPageProps> = async ({
     name: params.searchId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,
+    genderId: searchParams.genderId,
     skip: 0,
     take: 4,
   });
   const sizes = await getSizes();
   const colors = await getColors();
+  const genders = await getGenders();
 
   return (
     <div className="bg-white">
       <Container>
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-            <MobileFilters sizes={sizes} colors={colors} />
+            <MobileFilters sizes={sizes} colors={colors} genders={genders} />
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="Sizes" data={sizes} />
               <Filter valueKey="colorId" name="Colors" data={colors} />
+              <Filter valueKey="genderId" name="Genders" data={genders} />
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
               {products.length === 0 && <NoResults />}
@@ -65,6 +70,7 @@ const SearchPage: React.FC<SearchPageProps> = async ({
                 name={params.searchId}
                 colorId={searchParams.colorId}
                 sizeId={searchParams.sizeId}
+                genderId={searchParams.genderId}
               />
             </div>
           </div>
