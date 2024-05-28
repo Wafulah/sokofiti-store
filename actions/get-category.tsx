@@ -6,18 +6,19 @@ interface Query {
   categoryId?: string;
   colorId?: string;
   sizeId?: string;
+  genderId?: string;
   isFeatured?: boolean;
   skip?: number;
   take?: number;
 }
 const getCategory = async (query: Query = {}): Promise<Product[]> => {
   try {
-    
     const url = qs.stringifyUrl({
       url: `${URL}/${query.categoryId}`,
       query: {
         colorId: query.colorId,
         sizeId: query.sizeId,
+        genderId: query.genderId,
         skipItems: query.skip,
         takeItems: query.take,
         category: query.categoryId,
