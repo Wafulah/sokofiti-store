@@ -20,6 +20,7 @@ export interface ProductCart {
   quantity: string;
   description: string;
   items: string;
+  isArchived?: string;
   size: Size;
   color: Color;
   images: Image[];
@@ -56,7 +57,7 @@ export interface Order {
   createdAt: string;
   orderItems: OrderItems[];
 }
-export interface OrderItems{
+export interface OrderItems {
   id: string;
   orderId: string;
   productId: string;
