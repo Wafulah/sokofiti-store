@@ -17,10 +17,9 @@ const OrderPage = () => {
   const userDetails = useUserStore((state) => state.items);
 
   useEffect(() => {
-    
     setIsMounted(true);
     const OrderFunc = async () => {
-      const ord = await getOrders({id:userDetails[0].id});
+      const ord = await getOrders({ id: userDetails[0].id });
       setOrders(ord);
     };
     OrderFunc();
@@ -51,7 +50,7 @@ const OrderPage = () => {
                 <FaStopwatch className="text-[rgb(255,55,0)] text-base" />{" "}
                 {formatDate(order.createdAt)}
               </p>
-              {order.isPaid ? (
+              {order.isDelivered ? (
                 <p className="text-green-500 text-bold">Delivered</p>
               ) : (
                 <p className="text-bold text-red-500">Not Delivered</p>

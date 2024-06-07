@@ -51,6 +51,7 @@ export interface Order {
   id: string;
   store: Store;
   isPaid: boolean;
+  isDelivered?: boolean;
   phone: string;
   county: County[];
   address?: string;

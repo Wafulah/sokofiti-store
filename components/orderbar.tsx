@@ -17,7 +17,6 @@ function formatDate(isoDate: string) {
 }
 
 const OrderBar: React.FC<OrderBar> = ({ order }) => {
-  
   const totalPrice = order.orderItems.reduce((total, item) => {
     return total + Number(item.price);
   }, 0);
@@ -27,14 +26,14 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
         <div className="lg:w-2/5 lg:h-full h-1/2 w-11/12 mx-auto ">
-          <div className="h-1/6 mb-2 w-11/12 mx-auto mt-2 flex flex-col items-center text-center justify-center space-y-2">
+          <div className="h-1/5 lg:h-1/6 mb-2 w-11/12 mx-auto mt-2 flex flex-col items-center text-center justify-center space-y-2">
             <h2 className="text-xl text-white font-black"> Order Status </h2>
             <h2 className="text-lg font-thin text-white opacity-75">
               INVOICE : {order.id}
             </h2>
           </div>
 
-          <div className="h-3/6 w-11/12 flex mx-auto">
+          <div className="h-4/5 lg:h-3/6 w-11/12 flex mx-auto">
             <div className="h-full w-11/12 flex flex-col space-y-1 mx-auto">
               <div className="w-full flex h-2/5 ">
                 <div className="w-1/6 h-full space-y-2">
@@ -86,13 +85,16 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
                     <FaCircleCheck className="text-[rgb(255,55,0)] bg-none rounded-full " />
                   </div>
                 </div>
-                <div className="w-4/6 h-full ">
+                <div className="w-4/6 h-full flex ">
                   <p className="text-white font-thin text-lg">Delivered</p>
+                  {order.isDelivered && (
+                    <FaCircleCheck className="text-green-500 text-lg" />
+                  )}
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-11/12 mx-auto h-1/4 lg:h-2/6 flex justify-center items-center">
+          <div className="w-0 mx-auto h-0 lg:h-2/6 flex justify-center items-center">
             <Button className="rounded-lg bg-[rgb(255,55,0)] w-11/12 h-4/6  lg:h-2/6 mx-auto">
               Confirm Delivery
             </Button>
