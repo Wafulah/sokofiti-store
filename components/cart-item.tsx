@@ -63,8 +63,8 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
           </p>
         </div>
         <div className="mt-1 flex flex-end text-sm">
-          <p className="text-bold text-lg text-black">
-            T. Price KES.
+          <p className="text-bold text-base text-black">
+            Total
             <span className="text-black opacity-75 pl-2">{price}</span>
           </p>
         </div>

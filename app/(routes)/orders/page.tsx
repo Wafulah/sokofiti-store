@@ -42,8 +42,8 @@ const OrderPage = () => {
               key={order.id}
               className="red-pink-gradient rounded-[20px]  py-2  min-h-[280px] flex justify-evenly text-center items-center flex-col"
             >
-              <p className="text-white font-black text-2xl">
-                Order:
+              <p className="text-white font-black text-sm">
+                ID:
                 <span className="text-[rgb(255,55,0)]">{order.id}</span>
               </p>
               <p className="text-white italic text-sm flex">
