@@ -26,7 +26,7 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
     <div className="h-[90vh] lg:h-[85vh] bg-[#04060b] w-screen">
       <div className="h-full w-11/12 lg:flex flex-none lg:justify-between">
         <div className="lg:w-2/5 lg:h-full h-1/2 w-11/12 mx-auto ">
-          <div className="h-1/5 lg:h-1/6 mb-2 w-11/12 mx-auto mt-2 flex flex-col items-center text-center justify-center space-y-2">
+          <div className="h-1/5 lg:h-1/6 mb-2 w-11/12 mx-auto mt-2 flex flex-col items-center text-center justify-center lg:space-y-2">
             <h2 className="text-xl text-white font-black"> Order Status </h2>
             <h2 className="text-lg font-thin text-white opacity-75">
               INVOICE : {order.id}
@@ -86,18 +86,13 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
                   </div>
                 </div>
                 <div className="w-4/6 h-full flex ">
-                  <p className="text-white font-thin text-lg">Delivered</p>
+                  <p className="text-white font-thin text-lg pr-2">Delivered</p>
                   {order.isDelivered && (
-                    <FaCircleCheck className="text-green-500 text-lg" />
+                    <FaCircleCheck className="text-green-500 text-lg pt-2 pl-1" />
                   )}
                 </div>
               </div>
             </div>
-          </div>
-          <div className="w-0 mx-auto h-0 lg:h-2/6 flex justify-center items-center">
-            <Button className="rounded-lg bg-[rgb(255,55,0)] w-11/12 h-4/6  lg:h-2/6 mx-auto">
-              Confirm Delivery
-            </Button>
           </div>
         </div>
         <div className="lg:w-3/5 lg:h-full h-1/2 w-11/12 mb-10 mx-auto">
