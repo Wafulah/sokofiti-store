@@ -28,8 +28,8 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
         <div className="lg:w-2/5 lg:h-full h-1/2 w-11/12 mx-auto ">
           <div className="h-1/5 lg:h-1/6 mb-2 w-11/12 mx-auto mt-2 flex flex-col items-center text-center justify-center lg:space-y-2">
             <h2 className="text-xl text-white font-black"> Order Status </h2>
-            <h2 className="text-lg font-thin text-white opacity-75">
-              INVOICE : {order.id}
+            <h2 className="text-sm font-thin text-white opacity-75">
+              ID : {order.id}
             </h2>
           </div>
 
