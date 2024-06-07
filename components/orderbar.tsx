@@ -86,9 +86,9 @@ const OrderBar: React.FC<OrderBar> = ({ order }) => {
                   </div>
                 </div>
                 <div className="w-4/6 h-full flex ">
-                  <p className="text-white font-thin text-lg pr-2">Delivered</p>
+                  <p className="text-white font-thin text-lg">Delivered</p>
                   {order.isDelivered && (
-                    <FaCircleCheck className="text-green-500 text-lg pt-2 pl-1" />
+                    <FaCircleCheck className="text-green-500 text-xl pt-2 pl-1" />
                   )}
                 </div>
               </div>
