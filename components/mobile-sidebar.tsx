@@ -11,7 +11,7 @@ import useUserStore from "@/lib/store";
 
 export const MobileSidebar = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [userId, setUserId] = useState<boolean>(false); 
+  const [userId, setUserId] = useState<boolean>(false);
 
   const userDetails = useUserStore((state) => state.items);
 
@@ -19,7 +19,8 @@ export const MobileSidebar = () => {
     setIsMounted(true);
   }, []);
   useEffect(() => {
-    if (isMounted && userDetails[0]?.id) { // Check if userDetails[0]?.id exists
+    if (isMounted && userDetails[0]?.id) {
+      // Check if userDetails[0]?.id exists
       setUserId(true); // Set userId to true if userDetails[0]?.id exists
     } else {
       setUserId(false); // Set userId to false otherwise
@@ -39,12 +40,12 @@ export const MobileSidebar = () => {
       {userId ? (
         <Sheet>
           <SheetTrigger>
-            <div className="lg:w-8 w-[40px] mt-3 lg:mt-0 lg:ml-0 ml-4 h-[40px] lg:h-full relative rounded-full border-white border-2">
+            <div className="bg-black lg:w-8 w-[40px] mt-3 lg:mt-0 lg:ml-0 ml-4 h-[40px] lg:h-full relative rounded-full border-white border-2">
               <Image
                 src="/glamarace-dress.svg"
                 alt="profile"
                 fill
-                className="rounded-full"
+                className="rounded-full bg-black"
               />
             </div>
           </SheetTrigger>
