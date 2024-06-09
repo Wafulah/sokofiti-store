@@ -20,7 +20,7 @@ const BottomNav = () => {
   ];
 
   return (
-    <nav className="bg-gray-200 p-4">
+    <nav className="bg-[rgba(237,228,226,0.77)] rounded-t-xl fixed z-40 h-20 lg:h-24 w-full bottom-0">
       <ul className="flex justify-around">
         {links.map(({ href, label, icon }, index) => (
           <li key={index}>
