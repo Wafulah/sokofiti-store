@@ -1,4 +1,4 @@
-
+import type { Metadata } from "next";
 import Container from "@/components/ui/container";
 import Billboard from "@/components/ui/billboard";
 import ProductCard from "@/components/ui/product-card";
@@ -13,6 +13,10 @@ import getGenders from "@/actions/get-genders";
 import Filter from "./components/filter";
 import MobileFilters from "./components/mobile-filters";
 import { ProductCart } from "@/types";
+
+export const metadata = {
+  title: "Category | Glamarace",
+};
 
 export const revalidate = 0;
 
@@ -43,7 +47,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     take: 4,
   });
 
-  
   return (
     <div className="bg-white">
       <Container>

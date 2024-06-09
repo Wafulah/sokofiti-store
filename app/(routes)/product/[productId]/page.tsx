@@ -29,7 +29,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
     return null;
   }
 
-  const structuredData = {
+  const jsonLd  = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -58,7 +58,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
         <meta name="description" content={product.description} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
       <Container>
