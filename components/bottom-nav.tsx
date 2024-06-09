@@ -26,8 +26,10 @@ const BottomNav = () => {
           <li key={index}>
             <Link href={href}>
               <p
-                className={`flex flex-col items-center opacity-75 font-bold text-base lg:text-xl ${
-                  pathname === href ? "text-[rgb(255,0,0)] font-black " : "text-black"
+                className={`flex flex-col items-center opacity-75 ${
+                  pathname === href
+                    ? "text-[rgb(255,0,0)] font-black text-lg lg:text-2xl "
+                    : "text-black font-bold text-base lg:text-xl"
                 }`}
               >
                 {icon}
