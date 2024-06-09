@@ -21,13 +21,13 @@ const BottomNav = () => {
 
   return (
     <nav className="bg-[rgba(237,228,226,0.77)] rounded-t-xl fixed z-40 h-20 lg:h-24 w-full bottom-0">
-      <ul className="flex justify-around">
+      <ul className="flex justify-around items-center">
         {links.map(({ href, label, icon }, index) => (
           <li key={index}>
             <Link href={href}>
               <p
                 className={`flex flex-col items-center opacity-75 font-bold text-base lg:text-xl ${
-                  pathname === href ? " text-[rgb(255,0,0)]" : "text-black"
+                  pathname === href ? "bg-slate-300 text-[rgb(255,0,0)]" : "text-black"
                 }`}
               >
                 {icon}
