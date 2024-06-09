@@ -24,7 +24,7 @@ const Offer = () => {
     {
       id: 2,
       link: "/category/suits",
-      image: "/two.jpg",
+      image: "/suits.png",
       name: "Suits",
     },
     {
