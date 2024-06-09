@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import {
   FaHouse,
   FaStore,
@@ -9,7 +10,7 @@ import {
 } from "react-icons/fa6";
 
 const BottomNav = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const links = [
     { href: "/", label: "Home", icon: <FaHouse /> },
@@ -26,9 +27,7 @@ const BottomNav = () => {
             <Link href={href}>
               <p
                 className={`flex flex-col items-center opacity-75 font-bold text-base lg:text-xl ${
-                  router.pathname === href
-                    ? " text-[rgb(255,0,0)]"
-                    : "text-black"
+                  pathname === href ? " text-[rgb(255,0,0)]" : "text-black"
                 }`}
               >
                 {icon}
