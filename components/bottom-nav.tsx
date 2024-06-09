@@ -27,7 +27,7 @@ const BottomNav = () => {
             <Link href={href}>
               <p
                 className={`flex flex-col items-center opacity-75 font-bold text-base lg:text-xl ${
-                  pathname === href ? "text-[rgb(255,0,0)]" : "text-black"
+                  pathname === href ? "text-[rgb(255,0,0)] font-black " : "text-black"
                 }`}
               >
                 {icon}
