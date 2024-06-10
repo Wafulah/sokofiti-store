@@ -15,7 +15,7 @@ import MobileFilters from "./components/mobile-filters";
 import { ProductCart } from "@/types";
 
 export const metadata = {
-  title: "Category | Glamarace",
+  title: "Category",
 };
 
 export const revalidate = 0;
@@ -53,13 +53,31 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         {/* <Billboard data={category.billboard} /> */}
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-            <MobileFilters sizes={sizes} colors={colors} genders={genders} />
+            <MobileFilters sizes={sizes} colors={colors} genders={genders} category={`${params.categoryId}`} />
             <div className="hidden lg:block">
-              <Filter valueKey="sizeId" name="Sizes" data={sizes} />
-              <Filter valueKey="colorId" name="Colors" data={colors} />
-              <Filter valueKey="genderId" name="Genders" data={genders} />
+              <Filter
+                valueKey="sizeId"
+                name={`${params.categoryId} Sizes`}
+                data={sizes}
+              />
+              <Filter
+                valueKey="colorId"
+                name={`${params.categoryId} Colors`}
+                data={colors}
+              />
+              <Filter
+                valueKey="genderId"
+                name={`${params.categoryId} Genders`}
+                data={genders}
+              />
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
+              <h1 className="p-3 font-medium text-black ">
+                {params.categoryId}
+              </h1>
+              <p className="text-sm pt-1 px-4 text-black opacity-75">
+                {products[0].category.description}
+              </p>
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {products.map((item, index) => (

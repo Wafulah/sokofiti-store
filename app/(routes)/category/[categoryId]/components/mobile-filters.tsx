@@ -14,12 +14,14 @@ interface MobileFiltersProps {
   sizes: Size[],
   colors: Color[],
   genders: Gender[],
+  category: string,
 }
 
 const MobileFilters: React.FC<MobileFiltersProps> = ({
   sizes,
   colors,
-  genders
+  genders,
+  category
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -53,17 +55,17 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
             <div className="p-4">
               <Filter
                 valueKey="sizeId" 
-                name="Sizes" 
+                name={`${category} Sizes`} 
                 data={sizes}
               />
               <Filter 
                 valueKey="colorId" 
-                name="Colors" 
+                name={`${category} Colors`} 
                 data={colors}
               />
               <Filter 
                 valueKey="genderId" 
-                name="Genders" 
+                name={`${category} Genders`}
                 data={genders}
               />
             </div>
