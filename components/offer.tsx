@@ -69,7 +69,7 @@ const Offer = () => {
                     fill
                     className="aspect-square object-cover rounded-xl"
                     priority={true}
-                    sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 40vw, 27vw"
                     placeholder = 'blur'
                   />
                 </CardContent>
