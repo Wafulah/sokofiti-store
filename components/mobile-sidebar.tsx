@@ -43,7 +43,7 @@ export const MobileSidebar = () => {
             <div className="bg-black lg:w-8 w-[40px] mt-3 lg:mt-0 lg:ml-0 ml-4 h-[40px] lg:h-full relative rounded-full border-white border-2">
               <Image
                 src="/glamarace-dress.svg"
-                alt="profile"
+                alt="Glamarace profile"
                 fill
                 className="rounded-full bg-black"
               />

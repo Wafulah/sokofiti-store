@@ -56,7 +56,7 @@ const ProductCard: React.FC<ProductCard> = ({ data, index }) => {
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           src={data.images?.[0]?.url}
-          alt=""
+          alt="Glamarace Fashion Store"
           fill
           className="aspect-square object-cover rounded-md"
         />

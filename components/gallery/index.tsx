@@ -30,7 +30,7 @@ const Gallery: React.FC<GalleryProps> = ({
               <NextImage
                 fill
                 src={image.url}
-                alt="Image"
+                alt="Glmarace Image"
                 className="object-cover object-center"
               />
             </div>
