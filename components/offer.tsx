@@ -15,7 +15,13 @@ import {
 
 const Offer = () => {
   const links = [
-       {
+    {
+      id: 1,
+      link: "/category/traditional",
+      image: "/traditional.png",
+      name: "Traditional Akanras and Vitenges",
+    },
+    {
       id: 2,
       link: "/category/suits",
       image: "/suits.png",
@@ -23,12 +29,6 @@ const Offer = () => {
     },
     {
       id: 3,
-      link: "/category/traditional",
-      image: "/traditional.png",
-      name: "Traditional Akanras and Vitenges",
-    },
-    {
-      id: 1,
       link: "/category/weddings",
       image: "/wedding.png",
       name: "Weddings Dresses",
@@ -68,9 +68,9 @@ const Offer = () => {
                     alt={link.name}
                     fill
                     className="aspect-square object-cover rounded-xl"
-                    priority={true}
+                    priority={index === 1 ? true : false}
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 40vw, 27vw"
-                    placeholder = 'blur'
+                    placeholder="blur"
                   />
                 </CardContent>
               </Card>
