@@ -46,6 +46,7 @@ export const MobileSidebar = () => {
                 alt="Glamarace profile"
                 fill
                 className="rounded-full bg-black"
+                sizes="(max-width: 1024px) 40px, 2rem"
               />
             </div>
           </SheetTrigger>

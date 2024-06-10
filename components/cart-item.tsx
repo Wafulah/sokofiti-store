@@ -40,6 +40,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
           src={data?.images[0]?.url || "/one.jpg"}
           alt={data?.name || ""}
           className="object-cover object-center"
+          sizes="(max-width: 640px) 30vw, (max-width: 1200px) 13vw, 13vw"
         />
       </div>
       <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">

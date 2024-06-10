@@ -32,6 +32,7 @@ const Gallery: React.FC<GalleryProps> = ({
                 src={image.url}
                 alt="Glmarace Image"
                 className="object-cover object-center"
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
           </Tab.Panel>

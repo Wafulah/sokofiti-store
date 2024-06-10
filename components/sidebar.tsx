@@ -100,7 +100,7 @@ export const Sidebar = () => {
       <div className="px-3 py-2 flex-1">
         <Link href="/" className="flex items-center pl-3 mb-14">
           <div className="relative h-8 w-8 mr-4">
-            <Image fill alt="Glamarace Logo" src="/four.jpg" />
+            <Image fill alt="Glamarace Logo" src="/four.jpg"  sizes="(max-width: 640px) 32px, (max-width: 768px) 32px, (max-width: 1024px) 32px, 32px" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
             Glamarace

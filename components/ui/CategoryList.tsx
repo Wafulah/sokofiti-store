@@ -28,6 +28,7 @@ const CategoryList: React.FC<CategoryProps> = ({ title, data }) => {
                       alt={item.name}
                       fill
                       className="aspect-square object-cover rounded-md"
+                      sizes="(max-width: 640px) 70px, 70px"
                     />
                   </div>
                   <figcaption className="text-gray-500">{item.name}</figcaption>

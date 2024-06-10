@@ -61,13 +61,16 @@ const Offer = () => {
             className="mx-auto w-full lg:w-2/4 lg:h-64 h-52 lg:basis-1/3"
           >
             <Link href={link.link} className="w-full h-full">
-              <Card className="w-full h-full">
+              <Card className="w-full h-ful">
                 <CardContent className="flex aspect-square items-center justify-center p-6 w-full h-full relative">
                   <Image
                     src={link.image}
                     alt={link.name}
                     fill
                     className="aspect-square object-cover rounded-xl"
+                    priority={true}
+                    sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 33vw"
+                    placeholder = 'blur'
                   />
                 </CardContent>
               </Card>

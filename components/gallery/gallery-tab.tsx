@@ -23,6 +23,7 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
               src={image.url} 
               alt="Glamarace Fashion Store" 
               className="object-cover object-center" 
+              sizes="(max-width: 640px) 100vw, 50vw"
             />
           </span>
           <span
