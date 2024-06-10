@@ -19,25 +19,25 @@ const Offer = () => {
       id: 1,
       link: "/category/weddings",
       image: "/wedding.svg",
-      name: "Weddings",
+      name: "Weddings Dresses",
     },
     {
       id: 2,
       link: "/category/suits",
       image: "/suits.png",
-      name: "Suits",
+      name: "Men's Suits",
     },
     {
       id: 3,
       link: "/category/traditional",
-      image: "/three.jpg",
-      name: "Traditional",
+      image: "/traditional.png",
+      name: "Traditional Akanras and Vitenges",
     },
     {
       id: 4,
       link: "/category/latest",
-      image: "/four.jpg",
-      name: "Latest",
+      image: "/latest.png",
+      name: "Latest Fashion",
     },
   ];
 
