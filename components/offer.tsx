@@ -68,7 +68,6 @@ const Offer = () => {
                     alt={link.name}
                     fill
                     className="aspect-square object-cover rounded-xl"
-                    priority={true}
                     placeholder = 'blur'
                   />
                 </CardContent>
