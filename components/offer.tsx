@@ -15,13 +15,7 @@ import {
 
 const Offer = () => {
   const links = [
-    {
-      id: 1,
-      link: "/category/weddings",
-      image: "/wedding.png",
-      name: "Weddings Dresses",
-    },
-    {
+       {
       id: 2,
       link: "/category/suits",
       image: "/suits.png",
@@ -32,6 +26,12 @@ const Offer = () => {
       link: "/category/traditional",
       image: "/traditional.png",
       name: "Traditional Akanras and Vitenges",
+    },
+    {
+      id: 1,
+      link: "/category/weddings",
+      image: "/wedding.png",
+      name: "Weddings Dresses",
     },
     {
       id: 4,
