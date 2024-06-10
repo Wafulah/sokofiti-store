@@ -18,7 +18,7 @@ const Offer = () => {
     {
       id: 1,
       link: "/category/weddings",
-      image: "/wedding.svg",
+      image: "/wedding.png",
       name: "Weddings Dresses",
     },
     {
