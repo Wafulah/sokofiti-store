@@ -12,7 +12,7 @@ import { ProductCart } from "@/types";
 import LoadMore from "@/components/loadMore";
 
 export const metadata: Metadata = {
-  title: "Glamarace - Shop",
+  title: "Shop",
 
   description:
     "Discover extravagant, stylish, and top-quality fashion for everyone at Glamarace, Kenya's leading online fashion store. We offer a wide variety of clothing, shoes, accessories, and more from top brands and local designers. Shop wedding dresses, suits, watches, purses, Nike, Adidas, and more. Find your perfect look and elevate your style with Glamarace. Free shipping within Kenya!",
