@@ -20,7 +20,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: `${product.name} | Glamarace`,
+    title: `${product.name}`,
     description: product.description,
     keywords:[`${product.name}`],
     openGraph: {
