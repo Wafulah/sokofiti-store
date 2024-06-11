@@ -13,7 +13,7 @@ const CategoryList: React.FC<CategoryProps> = ({ title, data }) => {
     <div className="w-full h-[200px] ">
       <div className="w-11/12 mx-auto h-5/6 mt-7 ">
         <h3 className="font-bold text-3xl">{title}</h3>
-        <ScrollArea className="w-full h-3/4 ">
+        <ScrollArea className="w-full h-3/4">
           <div className="flex h-[100px] w-max gap-4 ">
             {data.map((item) => (
               <figure key={item.id} className="w-[28vw] lg:w-[20vw] shrink-0">
@@ -28,7 +28,7 @@ const CategoryList: React.FC<CategoryProps> = ({ title, data }) => {
                       alt={item.name}
                       fill
                       className="aspect-square object-cover rounded-md"
-                      sizes="(max-width: 640px) 70px, 70px"
+                      sizes="(max-width: 640px) 20vw, 70px"
                     />
                   </div>
                   <figcaption className="text-gray-500">{item.name}</figcaption>
