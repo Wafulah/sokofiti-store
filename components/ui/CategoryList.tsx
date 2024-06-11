@@ -20,7 +20,7 @@ const CategoryList: React.FC<CategoryProps> = ({ title, data }) => {
                 <Link
                   href={`category/${item.name}`}
                   key={item.id}
-                  className="w-[70px] h-3/4 mt-2 "
+                  className="w-[190px] h-3/4 mt-2 "
                 >
                   <div className="rounded-[50%] relative w-full h-full">
                     <Image
