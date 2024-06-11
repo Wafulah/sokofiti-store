@@ -6,7 +6,7 @@ import getCategory from "@/actions/get-category";
 // Define the generateMetadata function
 export async function generateMetadata(
   { params }: { params: { categoryId: string } },
-  parent: ResolvingMetadata
+  
 ): Promise<Metadata> {
   const products = await getCategory({
     categoryId: params.categoryId,
@@ -20,11 +20,11 @@ export async function generateMetadata(
       description: "This Category does not exist.",
     };
   }
-const category = products[0].category;
-  const previousImages = (await parent).openGraph?.images || [];
+  const category = products[0].category;
+  
 
   return {
-     title: `${category.name}`,
+    title: `${category.name}`,
     description: category.description,
     keywords: [`${category.name}`],
     openGraph: {
@@ -41,7 +41,7 @@ const category = products[0].category;
           height: 600,
           alt: category.name,
         },
-        ...previousImages,
+        
       ],
     },
     twitter: {

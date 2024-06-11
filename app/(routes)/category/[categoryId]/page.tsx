@@ -1,4 +1,4 @@
-
+import Head from "next/head";
 import Container from "@/components/ui/container";
 import Billboard from "@/components/ui/billboard";
 import ProductCard from "@/components/ui/product-card";
@@ -14,7 +14,6 @@ import getGenders from "@/actions/get-genders";
 import Filter from "./components/filter";
 import MobileFilters from "./components/mobile-filters";
 import { ProductCart } from "@/types";
-
 
 export const revalidate = 0;
 
@@ -44,9 +43,14 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     skip: 0,
     take: 4,
   });
-
+  const metadata = await generateMetadata({ params });
   return (
     <div className="bg-white">
+      <Head>
+        <title>{`${metadata.title}`}</title>
+        <meta name="description" content={`${metadata.description}`} />
+        {/* You can add other metadata elements here based on your needs */}
+      </Head>
       <Container>
         {/* <Billboard data={category.billboard} /> */}
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
@@ -104,7 +108,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     </div>
   );
 };
-
 
 export { generateMetadata };
 export default CategoryPage;
