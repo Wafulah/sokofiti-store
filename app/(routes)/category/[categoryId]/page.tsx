@@ -51,13 +51,10 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         <title>{`${metadata.title}`}</title>
         <meta name="description" content={`${metadata.description}`} />
         {/* You can add other metadata elements here based on your needs */}
-        <meta
-          property="og:type"
-          content={`${metadata?.openGraph?.type || "website"}`}
-        />
+        
         <meta
           property="og:url"
-          content={`${metadata?.openGraph?.url || "https://example.com"}`}
+          content={`${metadata?.openGraph?.url || "https://sokofiti-store.vercel.app"}`}
         />
         <meta
           property="og:site_name"
