@@ -16,11 +16,11 @@ const CategoryList: React.FC<CategoryProps> = ({ title, data }) => {
         <ScrollArea className="w-full h-3/4 ">
           <div className="flex h-[100px] w-max gap-4 ">
             {data.map((item) => (
-              <figure key={item.id} className="shrink-0">
+              <figure key={item.id} className="w-[30vw] shrink-0">
                 <Link
                   href={`category/${item.name}`}
                   key={item.id}
-                  className="w-[190px] h-3/4 mt-2 "
+                  className="w-[70px] h-3/4 mt-2 "
                 >
                   <div className="rounded-[50%] relative w-full h-full">
                     <Image
