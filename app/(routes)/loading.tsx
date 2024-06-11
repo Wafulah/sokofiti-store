@@ -13,16 +13,16 @@ const Loading = () => {
             <Skeleton className="aspect-square rounded-xl" />
           </div>
         </div>
-        <div className="h-[20px] w-[80vw] md:w-[20vw] rounded-full">
-        <Skeleton className="aspect-square rounded-full w-full h-full bg-[rgb(255,0,0)]" />
+        <div className="h-[10px] w-[60vw] md:w-[30vw] rounded-full">
+          <Skeleton className="aspect-square rounded-full w-full h-full bg-[rgba(255,0,0,0.54)]" />
         </div>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
-          <Skeleton className="aspect-square rounded-xl" />
+          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
+          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
+          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
+          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
+          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
+          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
         </div>
       </div>
     </Container>
