@@ -27,7 +27,7 @@ const CategoryList: React.FC<CategoryProps> = ({ title, data }) => {
                       src={item.imageUrl}
                       alt={item.name}
                       fill
-                      className="aspect-square object-cover rounded-md"
+                      className="aspect-square object-cover rounded-full"
                       sizes="(max-width: 640px) 20vw, 70px"
                     />
                   </div>
