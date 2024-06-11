@@ -81,7 +81,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 {params.categoryId}
               </h1>
               <p className="text-sm pt-1 pb-4 px-5 text-black opacity-75">
-                {products[0].category?.description}
+                {products[0]?.category?.description}
               </p>
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
