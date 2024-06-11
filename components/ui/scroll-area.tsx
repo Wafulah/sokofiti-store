@@ -22,7 +22,7 @@ const ScrollArea = React.forwardRef<
     <ScrollBar orientation="horizontal" />
     <ScrollAreaPrimitive.Corner />
     <div
-      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[rgb(255,0,0)] p-2 rounded-full"
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[rgb(255,0,0)] p-1 rounded-full"
       style={{ backgroundColor: 'rgb(255, 0, 0)' }}
     >
       <ArrowRight className="text-white" />
