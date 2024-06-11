@@ -51,7 +51,10 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         <title>{`${metadata.title}`}</title>
         <meta name="description" content={`${metadata.description}`} />
         {/* You can add other metadata elements here based on your needs */}
-
+        <meta
+          property="og:type"
+          content={`${metadata?.openGraph?.type || "website"}`}
+        />
         <meta
           property="og:url"
           content={`${metadata?.openGraph?.url || "https://example.com"}`}
@@ -81,7 +84,10 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
             "https://sokofiti-store.vercel.app/opengraph-image.png"
           }`}
         />
-
+        {/* <meta
+          name="twitter:card"
+          content={`${metadata?.twitter?.card || "summary_large_image"}`}
+        /> */}
         <meta
           name="twitter:site"
           content={`${metadata?.twitter?.site || "@glamarace"}`}
