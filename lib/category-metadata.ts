@@ -16,7 +16,7 @@ export async function generateMetadata(
 
   if (!products || products.length === 0 || !products[0].category) {
     return {
-      title: "Category Not Found",
+      title: "Category Empty",
       description: "This Category does not exist.",
     };
   }

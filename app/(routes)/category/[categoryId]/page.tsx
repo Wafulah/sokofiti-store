@@ -44,12 +44,69 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     take: 4,
   });
   const metadata = await generateMetadata({ params });
+
   return (
     <div className="bg-white">
       <Head>
         <title>{`${metadata.title}`}</title>
         <meta name="description" content={`${metadata.description}`} />
         {/* You can add other metadata elements here based on your needs */}
+
+        <meta
+          property="og:url"
+          content={`${metadata?.openGraph?.url || "https://example.com"}`}
+        />
+        <meta
+          property="og:site_name"
+          content={`${metadata?.openGraph?.siteName || "@glamarace"}`}
+        />
+        <meta
+          property="og:title"
+          content={`${
+            metadata?.openGraph?.title ||
+            "Glamarace - Kenya's Premier Online Fashion Destination"
+          }`}
+        />
+        <meta
+          property="og:description"
+          content={`${
+            metadata?.openGraph?.description ||
+            "Discover extravagant, stylish, and top-quality fashion for everyone at Glamarace, Kenya's leading online fashion store. We offer a wide variety of clothing, shoes, accessories, and more from top brands and local designers. Shop wedding dresses, suits, watches, purses, Nike, Adidas, and more. Find your perfect look and elevate your style with Glamarace. Free shipping within Kenya!"
+          }`}
+        />
+        <meta
+          property="og:image"
+          content={`${
+            metadata?.openGraph?.images ||
+            "https://sokofiti-store.vercel.app/opengraph-image.png"
+          }`}
+        />
+
+        <meta
+          name="twitter:site"
+          content={`${metadata?.twitter?.site || "@glamarace"}`}
+        />
+        <meta
+          name="twitter:title"
+          content={`${
+            metadata?.twitter?.title ||
+            "Glamarace - Kenya's Premier Online Fashion Destination"
+          }`}
+        />
+        <meta
+          name="twitter:description"
+          content={`${
+            metadata?.twitter?.description ||
+            "Discover extravagant, stylish, and top-quality fashion for everyone at Glamarace, Kenya's leading online fashion store. We offer a wide variety of clothing, shoes, accessories, and more from top brands and local designers. Shop wedding dresses, suits, watches, purses, Nike, Adidas, and more. Find your perfect look and elevate your style with Glamarace. Free shipping within Kenya!"
+          }`}
+        />
+        <meta
+          name="twitter:image"
+          content={`${
+            metadata?.twitter?.images ||
+            "https://sokofiti-store.vercel.app/twitter-image.png"
+          }`}
+        />
       </Head>
       <Container>
         {/* <Billboard data={category.billboard} /> */}
