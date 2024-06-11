@@ -55,7 +55,7 @@ const Offer = () => {
       arrows={false}
       className="w-[90vw] h-full mx-auto"
     >
-      <CarouselContent className="w-full h-full mx-auto ">
+      <CarouselContent className="w-full h-full mx-auto lg:gap-3">
         {links.map((link, index) => (
           <CarouselItem
             key={index}
