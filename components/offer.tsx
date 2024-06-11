@@ -52,6 +52,7 @@ const Offer = () => {
           delay: 2000,
         }),
       ]}
+      arrows={false}
       className="w-[90vw] h-full mx-auto"
     >
       <CarouselContent className="w-full h-full mx-auto ">
