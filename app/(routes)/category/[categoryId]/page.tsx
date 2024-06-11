@@ -53,7 +53,12 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         {/* <Billboard data={category.billboard} /> */}
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-            <MobileFilters sizes={sizes} colors={colors} genders={genders} category={`${params.categoryId}`} />
+            <MobileFilters
+              sizes={sizes}
+              colors={colors}
+              genders={genders}
+              category={`${params.categoryId}`}
+            />
             <div className="hidden lg:block">
               <Filter
                 valueKey="sizeId"
@@ -72,11 +77,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
               />
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
-              <h1 className="p-3 font-medium text-black ">
+              <h1 className="px-5 pt-3 pb-1 font-black text-black texl-2xl">
                 {params.categoryId}
               </h1>
-              <p className="text-sm pt-1 px-4 text-black opacity-75">
-                {products[0].category.description}
+              <p className="text-sm pt-1 pb-4 px-5 text-black opacity-75">
+                {products[0].category?.description}
               </p>
               {products.length === 0 && <NoResults />}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

@@ -95,7 +95,7 @@ export interface Category {
   id: string;
   name: string;
   imageUrl: string;
-  description: string;
+  description?: string;
   billboard: Billboard;
 }
 export interface Offer {
