@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "Discover extravagant, stylish, and top-quality fashion for everyone at Glamarace, Kenya's leading online fashion store. We offer a wide variety of clothing, shoes, accessories, and more from top brands and local designers.",
     images: [
       {
-        url: "https://sokofiti-store.vercel.app/og-image.jpg",
+        url: "https://sokofiti-store.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Glamarace Online Fashion Store",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "Glamarace - Kenya's Premier Online Fashion Destination",
     description:
       "Discover extravagant, stylish, and top-quality fashion for everyone at Glamarace, Kenya's leading online fashion store. We offer a wide variety of clothing, shoes, accessories, and more from top brands and local designers.",
-    images: "https://sokofiti-store.vercel.app/twitter-image.jpg",
+    images: "https://sokofiti-store.vercel.app/twitter-image.png",
   },
   themeColor: "FF3300",
   robots: "index, follow",
