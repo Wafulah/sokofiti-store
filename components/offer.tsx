@@ -59,7 +59,7 @@ const Offer = () => {
         {links.map((link, index) => (
           <CarouselItem
             key={index}
-            className="mx-auto pl-1 w-full lg:w-2/4 lg:h-64 h-52 lg:basis-1/3"
+            className="mx-auto pl-1 w-full lg:w-2/4 lg:h-72 h-52 lg:basis-1/3"
           >
             <Link href={link.link} className="w-full h-full">
               <Card className="w-full h-full">
