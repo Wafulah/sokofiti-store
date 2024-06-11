@@ -10,6 +10,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const products = await getCategory({
     categoryId: params.categoryId,
+    skip: 0,
+    take: 4,
       });
 
   if (!products || products.length === 0 || !products[0].category) {
