@@ -55,7 +55,7 @@ const Carousel = React.forwardRef<
       plugins,
       className,
       children,
-      arrows, // Default to true
+      arrows,
       ...props
     },
     ref
