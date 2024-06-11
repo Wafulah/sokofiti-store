@@ -19,9 +19,7 @@ const Loading = () => {
           <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
           <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
         </div>
-        <div className="mt-2 grid grid-cols-1">
-          <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
-        </div>
+        
         <div className="h-[10px] w-[60vw] md:w-[30vw] rounded-full">
           <Skeleton className="aspect-square rounded-full w-full h-full bg-[rgba(255,0,0,0.54)]" />
         </div>
