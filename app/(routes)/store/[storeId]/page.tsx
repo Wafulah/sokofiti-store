@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { generateMetadata } from "@/lib/product-metadata";
 
 import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
@@ -67,4 +68,5 @@ const StorePage: React.FC<StorePageProps> = async ({ params }) => {
   );
 };
 
+export { generateMetadata };
 export default StorePage;

@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { generateMetadata } from "@/lib/product-metadata";
 
 import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
@@ -29,7 +30,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
     return null;
   }
 
-  const jsonLd  = {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -80,4 +81,5 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
   );
 };
 
+export { generateMetadata };
 export default ProductPage;
