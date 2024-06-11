@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+
 import Container from "@/components/ui/container";
 import Billboard from "@/components/ui/billboard";
 import ProductCard from "@/components/ui/product-card";
 import NoResults from "@/components/ui/no-results";
 import LoadMore from "@/components/categoryMore";
 
+import { generateMetadata } from "@/lib/category-metadata";
 import getCategory from "@/actions/get-category";
 import getSizes from "@/actions/get-sizes";
 import getColors from "@/actions/get-colors";
@@ -14,9 +15,6 @@ import Filter from "./components/filter";
 import MobileFilters from "./components/mobile-filters";
 import { ProductCart } from "@/types";
 
-export const metadata = {
-  title: "Category",
-};
 
 export const revalidate = 0;
 
@@ -107,4 +105,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   );
 };
 
+
+export { generateMetadata };
 export default CategoryPage;
