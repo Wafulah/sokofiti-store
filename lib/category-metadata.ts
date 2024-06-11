@@ -1,7 +1,7 @@
 // Import necessary types
 import type { Metadata, ResolvingMetadata } from "next";
 import getCategory from "@/actions/get-category";
-import { ProductCart } from "@/types";
+
 
 // Define the generateMetadata function
 export async function generateMetadata(
@@ -11,7 +11,7 @@ export async function generateMetadata(
   const product = await getCategory({
     categoryId: params.categoryId,
     skip: 0,
-    take: 4,
+    take: 2,
   });
 
   if (!product) {
@@ -29,7 +29,7 @@ export async function generateMetadata(
     keywords: [`${product[0].category.name}`],
     openGraph: {
       type: "website",
-      url: `https://sokofiti-store.vercel.app/category/${product[0].category.id}`,
+      url: `https://sokofiti-store.vercel.app/category/${params.categoryId}`,
       title: `${product[0].category.name} | Glamarace`,
       description: product[0].category.description,
       images: [
