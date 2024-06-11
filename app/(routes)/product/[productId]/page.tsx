@@ -55,7 +55,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
   return (
     <div className="bg-white">
       <Head>
-        <title>{`${product.name} | Glamarace`}</title>
+        <title>{`${product.name} `}</title>
         <meta name="description" content={product.description} />
         <script
           type="application/ld+json"
