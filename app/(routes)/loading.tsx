@@ -27,12 +27,7 @@ const Loading = () => {
           <div className="col-span-1 sm:hidden md:block">
             <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
           </div>
-          <div className="sm:hidden col-span-1 md:block">
-            <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
-          </div>
-          <div className="sm:hidden md:block col-span-1 ">
-            <Skeleton className="bg-[rgba(255,0,0,0.54)] aspect-square rounded-xl" />
-          </div>
+          
         </div>
 
         <div className="mt-2 h-[8px] w-[60vw] md:w-[30vw] rounded-full">
