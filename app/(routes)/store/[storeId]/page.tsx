@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { generateMetadata } from "@/lib/product-metadata";
+import { generateMetadata } from "@/lib/store-metadata";
 
 import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
@@ -19,13 +19,7 @@ interface StorePageProps {
 }
 
 const StorePage: React.FC<StorePageProps> = async ({ params }) => {
-  const product = await getStore(params.storeId);
-  // const suggestedStores = await getStores({
-  //   categoryId: product?.category?.id
-  // });
-
-  const suggestedStores = await getStores();
-
+  const product = await getStore(params.storeId);  
   if (!product) {
     return null;
   }
