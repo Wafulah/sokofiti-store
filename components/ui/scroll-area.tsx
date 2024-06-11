@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
+import { ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -20,6 +21,12 @@ const ScrollArea = React.forwardRef<
     <ScrollBar orientation="vertical" />
     <ScrollBar orientation="horizontal" />
     <ScrollAreaPrimitive.Corner />
+    <div
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[rgb(255,0,0)] p-2 rounded-full"
+      style={{ backgroundColor: 'rgb(255, 0, 0)' }}
+    >
+      <ArrowRight className="text-white" />
+    </div>
   </ScrollAreaPrimitive.Root>
 ))
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName
